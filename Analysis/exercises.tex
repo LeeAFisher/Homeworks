@@ -1,0 +1,270 @@
+
+%\begin{enumerate}[1.]
+%  \item[0.]
+\noindent
+\textbf{Review Questions.}
+\begin{enumerate}[(a)]
+  \item Prove that every Cauchy sequence in $\R^n$ converges to a point in $\R^n$.
+  \item What is an open cover?
+  \item What definition of compactness did we start with in class?
+  \item Give a procedure to enumerate the rational numbers.
+  \item Give an example of an uncountable set.
+\end{enumerate}
+
+\bigskip
+
+\noindent
+Prove:
+\begin{prop}\label{prop:compact_is_bounded}
+A compact set $E \subset \R^n$ is bounded.
+\end{prop}
+
+Proof by contrapositive. Suppose $E$ is not bounded. This means that $E$ is not covered by any ball of
+finite radius. However, all of $\mathbb{R}^n$, and thus $E$, will be covered by the sequence of open balls
+$$B_n := \{ x:\left|x\right|< n\}.$$ Any union of a finite subset of these open balls will be an open ball of finite
+radius, and thus will not cover $E$. Therefore $E$ is not compact.$\square$\\
+
+\medskip
+
+\noindent
+Prove:
+
+\begin{prop}\label{prop:compact_is_closed}
+A compact set $E \subset \R^n$ is closed.
+\end{prop}
+\noindent
+Hint: Show that $\setminus E$ (i.e. the complement of $E$) is open: Let $\vx \in \setminus E$. Let
+\begin{equation*}
+  G_k := \left\{ \vy : |\vy - \vx| > \frac{1}{k} \right\} \equiv \setminus \overline{B \left(\vx,\frac{1}{k}\right)}.
+\end{equation*}
+Show that $\{ G_k \}$ cover $E$, then conclude.\\
+
+
+We will prove that the complement of $E$ is open. Consider a point $\vx \in \backslash E$ and a collection of sets
+$$G_k := \{ \vy : |\vy-\vx| > \frac{1}{k} \}.$$ We can see that $\cup_{k=1}^{\infty}G_k=\mathbb{R}^n/\vx$. Since $\vx \notin E$,
+$E \subset \cup G_k$, which means $\{ G_k \}$ is an open cover $E$. We know that $E$ is compact so it can be covered by
+finitely many of the $G_k$. The $G_k$ are ordered by containment ($G_k \subset G_{k+1}$) so $E$ can be covered by
+exactly one of the $G_k$, call this set $G_l$. Now, all of the $G_{k}$ with indices strictly greater than $l$ have
+complements that are disjoint from $E$ ($\backslash G_{k+1} \subset \backslash G_k$). The interiors of the complements
+of the $G_k$ are the open balls $B(\vx, \frac{1}{k})$. This sequence of open balls for all $k > l$ contains the point
+$\vx$ and does not intersect $E$. The point $\vx$ was arbitrarily chosen in $\backslash E$. Therefore $\backslash E$ is
+open, and $E$ by definition is closed. $\square$\\
+\medskip
+
+\noindent
+Prove:
+
+\begin{lem}
+Let $[a_j, b_j]$ be a nested sequence of nonempty closed intervals in $\R$: $[a_j, b_j] \supset [a_{j+1}, b_{j+1}]$ for all $j$.  Then $\cap^\infty_{j=1} [a_j, b_j]$ is not empty.
+\end{lem}
+
+\medskip
+
+\begin{defn-non}
+Let $\vx = (x_1, x_2, ..., x_n)$ and define
+\begin{equation*}
+  [\va, \vb] := \{ \vx \in \R^n : a_j \leq x_j \leq b_j, ~ j = 1, ..., n \},
+\end{equation*}
+where we call $[\va, \vb]$ a closed $n$-\emph{cell} or closed $n$-\emph{interval}.
+\end{defn-non}
+
+\noindent
+Prove:
+
+
+\begin{lem}\label{lem:nested seq_intersection_nonempty}
+Let $[\va^j, \vb^j]$ be a nested sequence of nonempty closed $n$-cells ($n$-intervals) in $\R^n$:\\
+$[\va_j, \vb_j] \supset [\va_{j+1}, \vb_{j+1}]$ for all $j$.  Then $\cap^\infty_{j=1} [\va_j, \vb_j]$ is not empty.
+\end{lem}
+
+\noindent
+Prove:
+\begin{lem}\label{lem:n_cell_is_compact}
+Any closed $n$-cell
+\begin{equation*}
+  [\va^0, \vb^0] \equiv \{ \vx \in \R^n : a_j^0 \leq x_j \leq b_j^0, ~ j = 1, ..., n \}
+\end{equation*}
+in $\R^n$ is compact.
+\end{lem}
+\noindent
+Hint: Suppose for contradiction that $[\va^0, \vb^0]$ has an open cover $\{ G_\alpha \}$ not containing a finite subcover.  Set $c_j^0 := \frac{1}{2} (a_j^0 + b_j^0)$.  Then the intervals $[a_j^0, c_j^0]$, $[c_j^0, b_j^0]$ determine $2^n$ closed $n$-cells whose union is $[\va^0, \vb^0]$.  At least one of these $n$-cells (having sides half the lengths of the sides of $[\va^0, \vb^0]$) cannot be covered by a finite sub-cover of $\{ G_{\alpha} \}$.  Denote this cell by $[\va^1, \vb^1]$.  Continue this process ad infinitum and use Lemma \ref{lem:nested seq_intersection_nonempty} to extract a contradiction.
+
+\medskip
+
+\noindent
+Prove:
+\begin{prop}
+A closed subset $F$ of a compact set $K$ in $\R^n$ is compact.
+\end{prop}
+\noindent
+Hint: if $\{ G_\alpha \}$ is an open cover of $F$, then $\{ G_\alpha, \setminus F \}$ is an open cover of $K$.
+
+\medskip
+
+\noindent
+Prove:
+\begin{cor}
+The intersection of a closed set and a compact set in $\R^n$ is compact.
+\end{cor}
+
+\noindent
+Prove:
+\begin{prop}\label{prop:closed_bnd_is_compact}
+If $E$ is closed and bounded in $\R^n$, then $E$ is compact.
+\end{prop}
+
+\medskip
+
+\noindent
+Note: Propositions \ref{prop:compact_is_bounded}, \ref{prop:compact_is_closed}, \ref{prop:closed_bnd_is_compact} constitute the Heine-Borel Theorem.
+
+\bigskip
+
+\noindent
+Prove:
+\begin{thm}[Bolzano-Weierstrass Theorem]\label{thm:bolzano-weierstrass}
+Every bounded infinite set $E$ of points in $\R^n$ has a limit point (i.e. a point of accumulation).
+\end{thm}
+\noindent
+Hint: first by enclosing $E$ in an $n$-cell, then using a sequence of bisections, as in the hint for Lemma \ref{lem:n_cell_is_compact}, to obtain a nested family of cells each containing an infinite number of points.
+
+\medskip
+
+\noindent
+Prove it again by enclosing the bounded infinite set in a compact $n$-cell $K$ and assuming for contradiction that no point of $K$ is a limit point of $E$.  Then each $\vx \in K$ would have a neighborhood $B(\vx,\delta (\vx))$ containing at most one point of $E$, namely $\vx$ if $\vx \in E$.  Then conclude.
+
+\medskip
+
+\noindent
+Prove:
+\begin{thm}\label{thm:converging_subseq}
+If $E \subset \R^n$ is compact, then every sequence in $E$ has a subsequence converging to a limit in $E$.
+\end{thm}
+
+\medskip
+
+\noindent
+The converse of Theorem \ref{thm:converging_subseq} is a consequence of the next two lemmas.  Prove them.
+
+%\medskip
+
+%\noindent
+%Prove:
+\begin{lem}
+If every sequence in $E \subset \R^n$ has a subsequence converging to a limit in $E$, and if $\{ G_\alpha \}$ is an open cover of $E$, then there is an $r > 0$ with the property that for each $\vy \in E$ there is an $\alpha (\vy)$ such that $B(\vy,r) \subset G_{\alpha(\vy)}$.
+\end{lem}
+\noindent
+Hint: if not, then for each $k \in \N$, there would be a $\vy_k$ such that $B \left(\vy_k,\frac{1}{k}\right)$ belongs to no $G_\alpha$.
+
+\medskip
+
+\begin{lem}
+If every sequence in $E \subset \R^n$ has a subsequence converging to a limit in $E$, then $E$ is totally bounded, i.e. for arbitrary $\epsilon > 0$, there is a finite number of points $\vx_1, ..., \vx_J$ such that $E \subset \cup^J_{j=1} B(\vx_j,\epsilon)$.
+\end{lem}
+\noindent
+Hint: if not, there would be an $\epsilon > 0$ such that $E$ could not be covered by a finite number of balls of radius $\epsilon$.  Choose $\vy_1 \in E$, $\vy_2 \in E \setminus B(\vy_1,\epsilon)$, $\vy_3 \in E \setminus B(\vy_1,\epsilon) \setminus B(\vy_2,\epsilon)$, ...
+
+\medskip
+
+\newpage
+
+\noindent
+Prove:
+\begin{thm}%\label{thm:XXXXX}
+If every sequence in $E \subset \R^n$ has a subsequence converging to a limit in $E$, then $E$ is compact.
+\end{thm}
+
+\medskip
+
+\noindent
+Show that a number of our results in $\R^n$ are not readily exported to infinite-dimensional spaces by proving
+\begin{prop}%\label{prop:ZZSSW}
+The sequence of functions $\{ f_k \}$, where $f_k (t) = \sqrt{2/\pi} \sin k t$, $k \in \N$, $0 \leq t \leq \pi$, in the space $C^0([0,\pi])$ of continuous real-valued functions on the interval $[0,\pi]$ endowed with the norm
+\begin{equation*}
+  \| f \| = \sqrt{\int_0^\pi |f(t)|^2 \, dt},
+\end{equation*}
+is bounded but has no convergent subsequence.
+\end{prop}
+
+Proof for boundedness:
+\begin{align*}
+  \| f_k(t) \| &= \sqrt{\int_0^\pi |\sqrt{2/\pi} \sin k t|^2 dt}\\
+               &= \sqrt{2/\pi} \sqrt{\int_0^\pi |\sin k t|^2 dt}\\
+               &\leq \sqrt{2/\pi} \sqrt{\int_0^\pi 1 dt}\\
+               &= \sqrt{2\pi}
+\end{align*}
+So the sequence is bounded for all $k$. For the proof for no convergent subsequence, we will use the triangle inquality.
+Consider $\| f_n(t) - f_m(t)\|$ for natural numbers with $n \neq m$
+\begin{align*}
+\|f_n(t) - f_m(t)\|              &= \sqrt{\int_0^\pi | \sqrt{2/\pi} \sin n t - \sqrt{2/\pi} \sin m t |^2 dt}\\
+                                 &= \sqrt{2/\pi} \sqrt{\int_0^\pi | \sin n t - \sin m t |^2 dt}\\
+\textrm{The triangle inequality:}&\geq \sqrt{2/\pi} \sqrt{| \int_0^\pi (\sin n t - \sin m t)^2 dt |}\\
+                                 &= \sqrt{2/\pi} \sqrt{| \int_0^\pi \sin^2 n t + \sin^2 m t - 2\sin mt\sin nt dt |}\\
+\textrm{Since $n \neq m$}        &= \sqrt{2/\pi} \sqrt{| \pi/2 + \pi/2 - 0 |}\\
+                                 &= \sqrt{2}
+\end{align*}
+
+This shows that as long as $m \neq n$ the norm of the difference between any two functions in the sequence will be
+greater than $\sqrt{2}$. Which proves that are no convergent subsequences.
+\noindent
+Prove:
+\begin{prop}
+Let $E$ be compact in $\R^n$.  Let $f : E \to \R$ be continuous on $E$ relative to $E$.  Then $f$ is bounded on $E$.
+\end{prop}
+\noindent
+Hint: first by noting that for each $\epsilon > 0$ and each $\vx \in E$, there is a $\delta(\epsilon,\vx) > 0$ such that $|f(\vx) - f(\vy)| < \epsilon$ when $|\vx - \vy| < \delta (\epsilon,\vx)$ and $\vy \in E$.  Cover $E$ with $B(\vx,\delta(\epsilon,\vx))$, then conclude.
+
+\medskip
+
+
+\noindent
+Prove it again by assuming for contradiction that $f$ is not bounded on $E$, in which case there would be a sequence $\vx_k$ in $E$ with $|f(\vx_k)| \to \infty$.
+
+Suppose $\vx_k$ is a sequence in $E$ for which $|\lim f(\vx_k)| \to \infty$. Since any infinite subset of a compact set has an accumulation point in the compact set. If $\lim \vx_n$ exists, it's limit is in $E$. The sequence $\vx_n$ has a convergent subsequence, pick one and call it $\vy_n$. We say $\lim \vy_n \to \vy$ and as well, $\lim |f(\vy_n)| \to \infty$. But $\vy \in E$, so $f(\vy)$ does not exists. Which contradicts the continuity of $f$.
+
+\medskip
+
+\noindent
+Prove:
+\begin{thm}%\label{thm:XXXXX}
+Let $E$ be compact in $\R^n$.  Let $f : E \to \R$ be continuous on $E$ relative to $E$.  Then $f$ attains its infimum on $E$, i.e. $f$ has a minimum on $E$.
+\end{thm}
+
+\medskip
+
+\noindent
+Prove:
+\begin{thm}%\label{thm:XXXXX}
+Let $E$ be compact in $\R^n$.  Let $f : E \to \R$ be continuous on $E$ relative to $E$.  Then $f$ is uniformly continuous on $E$.
+\end{thm}
+
+\medskip
+
+\noindent
+Prove:
+\begin{thm}%\label{thm:XXXXX}
+The distance between two nonempty compact disjoint sets $X$ and $Y$ in $\R^n$ is positive.
+\end{thm}
+\noindent
+Hint: first by regarding $X \cup Y$ as a single compact set and covering it with sets of the form
+\begin{equation*}
+  B \left(\vx,\frac{1}{3}|\vx - \vy|\right) \cup B \left(\vy,\frac{1}{3}|\vx - \vy|\right)
+\end{equation*}
+for each $\vx \in X$ and $\vy \in Y$.
+
+\medskip
+
+\noindent
+Prove it again by using the definition of infimum to show that there are sequences $\vx_k \in X$ and $\vy_k \in Y$ such that
+\begin{equation*}
+  \dist (X,Y) \equiv \inf \{ |\vx - \vy| : \vx \in X, \vy \in Y \} = \lim_{k \to \infty} |\vx_k - \vy_k|.
+\end{equation*}
+
+\medskip
+
+\noindent
+Prove it yet again by defining $\dist (\vx, Y) := \inf_{\vy \in Y} |\vx - \vy|$ and showing that $g(\vx) := \dist (\vx, Y)$ is continuous on the compact set $X$. (This proof works if $Y$ is merely closed.)
+
+
+
+%%%%%%%%%%

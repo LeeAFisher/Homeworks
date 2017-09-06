@@ -1,0 +1,63 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amscd}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{listings}
+\usepackage{enumerate}
+
+
+\textwidth=15cm \textheight=22cm \topmargin=0.5cm \oddsidemargin=0.5cm \evensidemargin=0.5cm
+
+\newcommand{\sk}{\vskip 10mm}
+\newcommand{\bb}[1]{\mathbb{#1}}
+\newcommand{\ra}{\rightarrow}
+
+\theoremstyle{plain}
+\newtheorem{problem}{Problem}
+\newtheorem{lemma}{Lemma}[problem]
+
+\theoremstyle{remark}
+\newtheorem{tpart}{}[problem]
+\newtheorem*{ppart}{}
+\begin{document}
+
+\begin{enumerate}
+  \item Verify that the function
+\begin{equation*}
+  f (x) = \sum_{n = 1}^\infty f_n (x) = \sum_{n = 1}^\infty \frac{1}{4^{n-1}} f_1 \left( 4^{n-1} x \right),
+\end{equation*}
+is not differentiable at any point $x \in \mathbb{R}$.  Recall that
+\begin{equation*}
+  f_1 (x) = |x|, \text{ for } |x| \leq \frac{1}{2}, \text{ and } f_1 (x + n) = f_1 (x),
+\end{equation*}
+for all integers $n$ and real numbers $x$.
+
+\textit{Proof.} Suppose for sake of contradiction that $f(x)$ had a derivative at some point $x_0$. Since, by the
+Weierstrass M-Test, $f(x)$ converges uniformly, we can say that if $f(x)$ is differentiable anywhere, it's derivative
+must be:
+
+\begin{equation*}
+  f'(x_0) = \sum_{n=1}^\infty f_1'\left( 4^{n-1} x_0 \right).
+\end{equation*}
+
+The function $f_1'(x)$ has period one and is piecewise defined.
+
+\begin{equation*}
+f_1'(x)=
+ \begin{cases}
+      undefined & x - \left \lfloor{x}\right \rfloor  = 0,\frac{1}{2} \\
+       1 & 0 < x - \left \lfloor{x}\right \rfloor < \frac{1}{2} \\
+      -1 & \frac{1}{2} < x -\left \lfloor{x}\right \rfloor
+   \end{cases}
+\end{equation*}
+
+There are two cases for $x_0$. If $x_0 = \frac{m}{2^k}$ for some integers $m$ and $k$ then for $n = k$,
+$f_1'(4^{k-1}\frac{m}{2^k})$ will not be defined, and thus $f'(x_0)$ will not exist. For the other case, if
+$x_0 \neq \frac{m}{2^k}$, then $f(x_0)$ will be the sum of the sequence $f_1'(4^{n-1}x_0)_{n=1}^{\infty}$. This sequence
+is made up entirely of the value $1$ or $-1$, which means the sequence cannot converge to zero, and thus that the
+derivative cannot exist here either.
+\end{enumerate}
+
+\end{document}

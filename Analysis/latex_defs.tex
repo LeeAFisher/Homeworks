@@ -1,0 +1,191 @@
+
+%-----------------------------------------------------------------------------
+% custom environments
+%-----------------------------------------------------------------------------
+
+%\newenvironment{enumerateX}
+%{\begin{list}{\arabic{enumi}.}{
+%     \usecounter{enumi}
+%     \leftmargin 2.0em\topsep 0.2em\itemsep -0.2em\labelwidth 50.0em}}
+%{\end{list}}
+%\newenvironment{itemizeX}
+%{\begin{list}{\labelitemi}{
+%     \leftmargin 2.0em\topsep 0.2em\itemsep -0.2em\labelwidth 50.0em}}
+%{\end{list}}
+
+%\newenvironment{listX}
+%{\begin{list}{}{
+%     \leftmargin 2.0em\topsep 0.2em\itemsep -0.2em\labelwidth 50.0em}}
+%{\end{list}}
+
+\ifdefined\compilebook
+  \newtheorem{thm}{Theorem}[chapter]
+\else
+  \newtheorem{thm}{Theorem}
+\fi
+%\newtheorem{varform}[thm]{Variational Formulation}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem*{defn-non}{Definition}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{remark}[thm]{Remark}
+
+\newcommand{\prob}[1]{\bigskip \noindent \textbf{#1.}}
+\newcommand{\sect}[1]{\bigskip \noindent \textbf{Section #1}: \bigskip}
+
+%-----------------------------------------------------------------------------
+% Macros for notes
+%---------------------------------
+ \newcommand{\mnote}[1]{{\marginpar{\raggedright\tiny\em
+     $\!\!\!\!\!\!\,\bullet$ #1}}} % enable marginal notes
+ \newcommand{\tnote}[1]{{#1}}      % enable text notes
+%---------------------------------
+%\newcommand{\mnote}[1]{{}}        % disable marginal notes
+%\newcommand{\tnote}[1]{{}}        % disable text notes
+%-----------------------------------------------------------------------------
+
+\renewcommand{\labelenumi}{\Alph{enumi}.}
+\renewcommand{\labelenumii}{\alph{enumii}.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% NEW COMMANDS FOR MATH SYMBOLS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% special limits
+\newcommand{\esup}{\mathrm{ess} \sup}
+
+% define sign (signum) function with nice font
+\newcommand{\sign}{\textrm{sign}}
+\newcommand{\sob}{\mathrm{sob}}
+\newcommand{\supp}{\mathrm{support}\:}
+\newcommand{\diam}{\mathrm{diam}\:}
+\newcommand{\dist}{\mathrm{dist}\:}
+\newcommand{\xor}[2]{#1 \, \triangle \, #2}
+\newcommand{\dd}{:} % matrix dot product
+\newcommand{\tp}{^{\dag}} % matrix or vector transpose
+\newcommand{\cl}[1]{\overline{#1}}
+\newcommand{\interior}[1]{\mathring{#1}}
+\newcommand{\tr}{\mathrm{trace}}      %trace
+\newcommand{\kernel}{\mathrm{ker}}    %kernel
+\newcommand{\foraa}{\overset{a}{\forall}} % for almost all
+
+% adapt simpson
+\newcommand{\errest}{\eta_{\mathrm{est}}} % error estimator
+\newcommand{\Cest}{C_{\mathrm{est}}} % error estimator constant
+
+% define vector symbols
+\newcommand{\va}{\mathbf{a}}
+\newcommand{\vb}{\mathbf{b}}
+\newcommand{\ve}{\mathbf{e}}
+\newcommand{\vu}{\mathbf{u}}
+\newcommand{\vf}{\mathbf{f}}
+\newcommand{\vg}{\mathbf{g}}
+\newcommand{\vv}{\mathbf{v}}
+\newcommand{\vw}{\mathbf{w}}
+\newcommand{\vz}{\mathbf{z}}
+\newcommand{\vr}{\mathbf{r}}
+\newcommand{\vk}{\boldsymbol{\kappa}}
+\newcommand{\vm}{\mathbf{m}}
+\newcommand{\vo}{\boldsymbol{\omega}}
+\newcommand{\vp}{\mathbf{p}}
+\newcommand{\vmu}{\boldsymbol{\mu}}
+\newcommand{\vtheta}{\boldsymbol{\theta}}
+\newcommand{\vsigma}{\boldsymbol{\sigma}}
+\newcommand{\vx}{\mathbf{x}}
+\newcommand{\vy}{\mathbf{y}}
+\newcommand{\vzero}{\mathbf{0}}
+%\newcommand{\vn}{\vec{\nu}}
+%\newcommand{\vt}{\vec{\tau}}
+\newcommand{\vnu}{\boldsymbol{\nu}}
+\newcommand{\vtau}{\boldsymbol{\tau}}
+\newcommand{\vn}{\mathbf{n}}
+\newcommand{\vt}{\mathbf{t}}
+\newcommand{\vvn}{\vv \cdot \vn}
+\newcommand{\vX}{\mathbf{X}}
+\newcommand{\vY}{\mathbf{Y}}
+\newcommand{\vphi}{\boldsymbol{\varphi}}
+\newcommand{\vpsi}{\boldsymbol{\psi}}
+\newcommand{\vPhi}{\mathbf{\Phi}}
+\newcommand{\vPsi}{\mathbf{\Psi}}
+\newcommand{\veta}{\boldsymbol{\eta}}
+\newcommand{\vQ}{\mathbf{Q}}
+\newcommand{\vU}{\mathbf{U}}
+\newcommand{\vV}{\mathbf{V}}
+\newcommand{\vW}{\mathbf{W}}
+\newcommand{\vZ}{\mathbf{Z}}
+\newcommand{\vM}{\mathbf{M}}
+\newcommand{\vA}{\mathbf{A}}
+\newcommand{\vB}{\mathbf{B}}
+\newcommand{\vC}{\mathbf{C}}
+\newcommand{\vD}{\mathbf{D}}
+\newcommand{\vG}{\mathbf{G}}
+\newcommand{\vK}{\mathbf{K}}
+\newcommand{\vF}{\mathbf{F}}
+\newcommand{\vJ}{\mathbf{J}}
+\newcommand{\vI}{\mathbf{I}}
+
+% define special symbols
+\newcommand{\cA}{\mathcal{A}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cE}{\mathcal{E}}
+\newcommand{\cF}{\mathcal{F}}
+\newcommand{\cG}{\mathcal{G}}
+\newcommand{\cM}{\mathcal{M}}
+\newcommand{\cN}{\mathcal{N}}
+\newcommand{\cO}{\mathcal{O}}
+\newcommand{\cP}{\mathcal{P}}
+\newcommand{\cS}{\mathcal{S}}
+\newcommand{\cT}{\mathcal{T}}
+\newcommand{\cW}{\mathcal{W}}
+\newcommand{\cX}{\mathcal{X}}
+\newcommand{\cY}{\mathcal{Y}}
+\newcommand{\cZ}{\mathcal{Z}}
+
+% domain notation
+\newcommand{\OA}{\Omega_{ALL}}
+
+% define domain and boundary integrals
+\newcommand{\iRn}{\int\limits_{\R^n}}
+\newcommand{\iO}{\int_{\Omega}}
+\newcommand{\idO}{\int_{\partial \Omega}}
+\newcommand{\iOs}{\int_{\Omega_s}}
+\newcommand{\iOst}{\int_{\Omega^t_s}}
+
+%% define surface Laplacian and gradient
+%\newcommand{\SG}{\nabla_{\Gamma}}
+%\newcommand{\SGi}{\nabla_{\Gamma^{i}}} % with time index
+%\newcommand{\SGh}{\nabla_{\Gamma_{h}}}
+%\newcommand{\SL}{\Delta_{\Gamma}}
+%\newcommand{\SLi}{\Delta_{\Gamma^{i}}} % with time index
+
+% define function space symbols
+\newcommand{\V}{\mathbb{V}}   % space
+\newcommand{\Q}{\mathbb{Q}}   % space
+\newcommand{\G}{\mathbb{G}}   % normal velocity space
+\newcommand{\M}{\mathbb{M}}   % pinning variable (dual) space
+\newcommand{\R}{\mathbb{R}}   % real numbers
+\newcommand{\C}{\mathbb{C}}   % complex numbers
+\newcommand{\N}{\mathbb{N}}   % natural numbers
+\newcommand{\B}{\mathbb{B}}   % ???
+\newcommand{\Z}{\mathbb{Z}}   % integers
+
+% Lebesgue spaces
+\newcommand{\Lloc}{L_{\mathrm{loc}}}   % L_loc
+
+% define time-step symbol
+\newcommand{\dT}{\Delta t}
+\newcommand{\stepsize}{Delta x}
+
+% define triangulation and polynomial space symbols
+\newcommand{\Pk}{\mathcal{P}}
+\newcommand{\Nd}{\mathcal{N}}
+\newcommand{\Interp}{\mathcal{I}}
+
+% lighten (gray) text
+\newcommand{\gray}{\textcolor[rgb]{0.5,0.5,0.5}}
+\newcommand{\red}{\textcolor{red}}
+\newcommand{\blue}{\textcolor{blue}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

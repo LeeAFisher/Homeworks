@@ -1,0 +1,63 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amscd}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{listings}
+\usepackage{enumerate}
+
+\textwidth=15cm \textheight=22cm \topmargin=0.5cm \oddsidemargin=0.5cm \evensidemargin=0.5cm
+
+\newcommand{\sk}{\vskip 10mm}
+\newcommand{\bb}[1]{\mathbb{#1}}
+\newcommand{\ra}{\rightarrow}
+
+\theoremstyle{plain}
+\newtheorem{problem}{Problem}
+\newtheorem{lemma}{Lemma}[problem]
+
+\theoremstyle{remark}
+\newtheorem{tpart}{}[problem]
+\newtheorem*{ppart}{}
+
+\begin{document}
+
+\begin{enumerate}
+  \item A compact set $E \subset \mathbb{R}^n$ is bounded.\\
+  \textit{Proof.} By contrapositive, suppose $E$ is not bounded. This means that $E$ is not covered by any ball of
+  finite radius. However, all of $\mathbb{R}^n$, and thus $E$, will be covered by the sequence of open balls
+  $$B_n := \{ x:\left|x\right|< n\}.$$ Any union of a finite subset of these open balls will be an open ball of finite
+  radius, and thus will not cover $E$. Therefore $E$ is not compact.$\square$\\
+
+  \item A compact set $E \subset \mathbb{R}^n$ is closed.\\
+  \textit{Proof.} We will prove that the complement of $E$ is open. Consider a point $x \in \backslash E$ and a collection of sets
+  $$G_k := \{ y : |y-x| > \frac{1}{k} \}.$$ We can see that $\cup_{k=1}^{\infty}G_k=\mathbb{R}^n/x$. Since $x \notin E$,
+  $E \subset \cup G_k$, which means $G_k$ is an open cover $E$. We know that $E$ is compact so it can be covered by
+  finitely many of the $G_k$. The $G_k$ are ordered by containment ($G_k \subset G_{k+1}$) so $E$ can be covered by
+  exactly one of the $G_k$, call this set $G_l$. Now, all of the $G_{k}$ with indices strictly greater than $l$ have
+  complements that are disjoint from $E$ ($\backslash G_{k+1} \subset \backslash G_k$). The interiors of the complements
+  of the $G_k$ are the open balls $B(x, \frac{1}{k})$. This sequence of open balls for all $k > l$ contains the point
+  $x$ and does not intersect $E$. The point $x$ was arbitrarily chosen in $\backslash E$. Therefore $\backslash E$ is
+  open, and $E$ by definition is closed. $\square$\\
+
+  \item Let $[a_j,b_j]$ be a nested sequence of nonempty closed intervals in $\mathbb{R}:[a_j,b_j] \supset [a_{j+1},
+        b_{j+1}]$ for all $j$. Then $\cap_{j=1}^{\infty}[a_j,b_j]$ is non-empty.\\
+  \textit{Proof.}
+
+
+  \item Let $[\bf{a}_j,\bf{b}_j]$ be a nested sequence of nonempty closed n-cells in $\mathbb{R^n}:[\bf{a}_j,\bf{b}_j]
+        \supset [\bf{a}_{j+1},\bf{b}_{j+1}]$ for all $j$. Then $\cap_{j=1}^{\infty} [\bf{a}_j,\bf{b}_j]$ is nonempty.\\
+  \textit{Proof.}
+
+
+  \item Any closed n-cell is compact.\\
+  \textit{Proof.}
+
+
+  \item A closed subset $F$ of a compact set $K$ in $\mathbb{R}^n$ is compact.\\
+  \textit{Proof.}
+
+\end{enumerate}
+
+\end{document}
