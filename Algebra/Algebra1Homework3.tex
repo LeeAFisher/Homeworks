@@ -1,0 +1,85 @@
+\documentclass[12pt]{report}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{amssymb,textcomp}
+\title{\textbf{Algebra I: Homework 2}}
+\author{Lee Fisher}
+\date{}
+\begin{document}
+
+\textbf{Algebra 1 Homework 3}\\
+\indent \textbf{Lee Fisher}\\
+\indent \textbf{2017-09-09}
+
+\begin{itemize}
+
+\item Page 40 \#2. Consider $\phi: G \to H$ an isomorphism. Let $x \in G$ with
+      $|x| = n$. This means $x^n=1_G$. Therefore $\phi(x^n) = \phi(1_G)$, and
+      since $\phi$ is an isomorphism we have $\phi(x)^n = 1_H$. So the order of
+      $\phi(x)$ is at most $n$.\\
+
+      To prove the order is equal to $n$ suppose there is a $k<n$ for which
+      $\phi(x)^k = 1_H$, this means $\phi(x^k) = 1_H$ and that $x^k =
+      \phi^{-1}(1_H)$. Finally $x^k = 1$ which contradicts $|x|=n$. So
+      $|\phi(x)| = |x|$.\\
+
+      If $\phi$ is only a homomorphism we don't get this result. Take
+      $\phi:(\mathbb{Z},+) \to (\mathbb{Z_2},+)$ by $\phi(x) = x \textrm{mod}2$.
+      $\phi$ is a homomorphism but $|1| = \infty$ and $|\phi(1)| = 2$.\\
+
+\item Page 40 \#3. Let $\phi: G \to H$ be an isomorphism. Consider $a,b \in G$.
+      We have $\phi(a)\phi(b) = \phi(ab) = \phi(ba) = \phi(b)\phi(a)$. So
+      $\textrm{Im}(\phi)$ is commutative. Because $\phi$ is a bijection we have
+      $\textrm{Im}(\phi) = H$, so $H$ is abelian.\\
+
+      For the other direction note that $\phi^{-1}$ is also an isomorphism, and
+      therefore if $H$ is abelian then $G$ will be abelian by the same argument.\\
+
+      More generally, if $\phi:G \to H$ is a homomorphism and $G$ is abelian
+      then $H$ will be abelian provided $\textrm{Im}(\phi) = H$. In other words,
+      so $\phi$ must be onto to ensure that if $G$ is abelian, then so is $H$.\\
+
+\item Page 40 \#4. Consider the multiplicative groups $\mathbb{R}-{0}$ and
+      $\mathbb{C}-{0}$. Consider, for sake of contradiction, an isomorpism
+      $\phi: \mathbb{C}-{0} \to \mathbb{R}-{0}$. Now, $\phi(i) \in
+      \mathbb{R}-{0}$. Say $\phi(i) = x$, then we have $\phi(i)^2 = x^2$, which
+      means $x^2 = \phi(-1)$.\\
+
+      We will now prove $\phi(-1) = -1$. We have $\phi(-1)^2 = \phi(1) = 1$.
+      This means $\phi(-1)$ equals either $1$ or $-1$. If $\phi(-1) = 1$ then
+      $\phi(-1) = \phi(1)$ which contradicts $\phi$ being one to one. So, since
+      $\phi(-1) = -1$ we have $x^2 = -1$, where $x$ is real. This equation has
+      no solutions over the real numbers, this contradicts $\phi$ being well
+      defined. Thus the multiplicative groups $\mathbb{C} -{0}$ and
+      $\mathbb{R} -{0}$ are not isomorphic.\\
+
+\item Page 40 \#7. $D_8$ and $Q_8$ are not isomorphic. $D_8$ has 4 elements of
+      order 2 (V,H,D,D') while $Q_8$ has only one element of order 2 (-1).\\
+
+\item Page 40 \#17. Let G be a map and consider the map $\phi:G \to G$ by
+      $\phi(g) = g^{-1}$.\\
+
+      $\rightarrow$ Suppose $\phi$ is a homomorphism. Consider $a,b \in G$
+      then we have $b^{-1}a^{-1} = (ab)^{-1} = \phi(ab) = \phi(a)\phi(b) =
+      a^{-1}b^{-1}$. So $b^{-1}a^{-1} = a^{-1}b^{-1}$ for all $a,b \in G$. Thus
+      $G$ is abelian.\\
+
+      $\leftarrow$ Suppose $G$ is abelian. Consider $a,b \in G$. We have
+      $\phi(ab) = (ab)^{-1} = b^{-1}a^{-1} = a^{-1}b^{-1} = \phi(a)\phi(b)$.
+      Thus $\phi$ is a homomorphism.
+
+\item Page 41 \#25.
+
+\item Page 41 \#26.
+
+\item Page 48 \#3
+
+\item Page 48 \#10(a).
+
+\item Page 60 \#1.
+
+\item Page 60 \#3.
+
+\item Page 60 \#12(a).
+\end{itemize}
+
+\end{document}
