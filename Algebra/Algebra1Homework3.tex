@@ -1,6 +1,6 @@
 \documentclass[12pt]{report}
 \usepackage[margin=0.5in]{geometry}
-\usepackage{amssymb,textcomp,amsmath}
+\usepackage{amssymb,textcomp,amsmath,tikz}
 \title{\textbf{Algebra I: Homework 2}}
 \author{Lee Fisher}
 \date{}
@@ -15,12 +15,12 @@
 \item Page 40 \#2. Consider $\phi: G \to H$ an isomorphism. Let $x \in G$ with
       $|x| = n$. This means $x^n=1_G$. Therefore $\phi(x^n) = \phi(1_G)$, and
       since $\phi$ is an isomorphism we have $\phi(x)^n = 1_H$. So the order of
-      $\phi(x)$ is at most $n$.\\
+      $\phi(x)$ is at most $n$.
 
       To prove the order is equal to $n$ suppose there is a $k<n$ for which
       $\phi(x)^k = 1_H$, this means $\phi(x^k) = 1_H$ and that $x^k =
       \phi^{-1}(1_H)$. Finally $x^k = 1$ which contradicts $|x|=n$. So
-      $|\phi(x)| = |x|$.\\
+      $|\phi(x)| = |x|$.
 
       If $\phi$ is only a homomorphism we don't get this result. Take
       $\phi:(\mathbb{Z},+) \to (\mathbb{Z_2},+)$ by $\phi(x) = x \textrm{mod}2$.
@@ -29,10 +29,10 @@
 \item Page 40 \#3. Let $\phi: G \to H$ be an isomorphism. Consider $a,b \in G$.
       We have $\phi(a)\phi(b) = \phi(ab) = \phi(ba) = \phi(b)\phi(a)$. So
       $\textrm{Im}(\phi)$ is commutative. Because $\phi$ is a bijection we have
-      $\textrm{Im}(\phi) = H$, so $H$ is abelian.\\
+      $\textrm{Im}(\phi) = H$, so $H$ is abelian.
 
       For the other direction note that $\phi^{-1}$ is also an isomorphism, and
-      therefore if $H$ is abelian then $G$ will be abelian by the same argument.\\
+      therefore if $H$ is abelian then $G$ will be abelian by the same argument.
 
       More generally, if $\phi:G \to H$ is a homomorphism and $G$ is abelian
       then $H$ will be abelian provided $\textrm{Im}(\phi) = H$. In other words,
@@ -42,7 +42,7 @@
       $\mathbb{C}-{0}$. Consider, for sake of contradiction, an isomorpism
       $\phi: \mathbb{C}-{0} \to \mathbb{R}-{0}$. Now, $\phi(i) \in
       \mathbb{R}-{0}$. Say $\phi(i) = x$, then we have $\phi(i)^2 = x^2$, which
-      means $x^2 = \phi(-1)$.\\
+      means $x^2 = \phi(-1)$.
 
       We will now prove $\phi(-1) = -1$. We have $\phi(-1)^2 = \phi(1) = 1$.
       This means $\phi(-1)$ equals either $1$ or $-1$. If $\phi(-1) = 1$ then
@@ -68,7 +68,7 @@
       Thus $\phi$ is a homomorphism.
 
 \item Page 41 \#25.
-  \begin{enumerate}
+  \begin{itemize}
   \item Consider a vector in polar coordinates, and the product:
   \begin{align}
     \begin{bmatrix}
@@ -79,22 +79,252 @@
       r\cos(\phi)\\
       r\sin(\phi)
     \end{bmatrix}
+    &= \begin{bmatrix}
+      r\cos(\phi)\cos(\theta) - r\sin(\phi)\sin(\theta)\\
+      r\cos(\phi)\sin(\theta) + r\sin(\phi)\cos(\theta)
+    \end{bmatrix}\\
+    &=\begin{bmatrix}
+      r\cos(\phi+\theta)\\
+      r\sin(\phi+\theta)
+    \end{bmatrix}\\
   \end{align}
-  \item
-  \item
-  \end{enumerate}
+  Multiplication by this matrix will rotate a vector in $\mathbb{R}^2$ through
+  an angle of $\theta$.
 
-\item Page 41 \#26.
+  \item We need to show that $\phi$ respects the group structure of $D_{2n}$ to
+        prove that $\phi$ is a homomorphism. We need that $\phi(r)^n = \phi(s)^2
+        = I$ and that $\phi(s)\phi(r) = \phi(r)^{-1}\phi(s)$.
+
+        We know that $\theta = 2\pi/n$ and that $\phi(r)$ is a rotation matrix
+        through and angle of $\theta$. If we multiply two rotation matrices
+        together we will add their angles. So from this, we have $\phi(r)^n=I$.
+
+        To show $\phi(s)^2 = I$ is a simple calculation:
+        $$
+        \begin{bmatrix}
+          0 & 1\\
+          1 & 0
+        \end{bmatrix}
+        \begin{bmatrix}
+          0 & 1\\
+          1 & 0
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+          1 & 0\\
+          0 & 1
+        \end{bmatrix}
+        $$
+        Done. For the last part we need $\phi(s)\phi(r) = \phi(r)^{-1}\phi(s)$.
+        So, for the left hand side we have:
+        $$
+        \begin{bmatrix}
+          0 & 1\\
+          1 & 0
+        \end{bmatrix}
+        \begin{bmatrix}
+          \cos(\theta) & -\sin(\theta)\\
+          \sin(\theta) & \cos(\theta)
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+          \sin(\theta) & \cos(\theta)\\
+          \cos(\theta) & -\sin(\theta)
+        \end{bmatrix}
+        $$
+
+        And for the right hand side we have:
+      \begin{align*}
+        \begin{bmatrix}
+          \cos(\theta) & -\sin(\theta)\\
+          \sin(\theta) & \cos(\theta)
+        \end{bmatrix}^{-1}
+        \begin{bmatrix}
+          0 & 1\\
+          1 & 0
+        \end{bmatrix}
+        &=
+        \begin{bmatrix}
+           \cos(\theta) & \sin(\theta)\\
+          -\sin(\theta) & \cos(\theta)
+        \end{bmatrix}
+        \begin{bmatrix}
+          0 & 1\\
+          1 & 0
+        \end{bmatrix}\\
+        &=
+        \begin{bmatrix}
+          \sin(\theta) & \cos(\theta)\\
+          \cos(\theta) & -\sin(\theta)
+        \end{bmatrix}
+      \end{align*}
+
+      So $\phi(r)$ and $\phi(s)$ satsify all the relations that generate
+      $D_{2n}$. This means $\phi$ will be a homomorphism from $D_{2n}$ to
+      $GL_2(\mathbb{R})$.
+
+  \item In the previous part I showed that $\phi(r)$ and $\phi(s)$ satisfy all
+  the relations that the generators for $D_{2n}$ satisfy. This means the
+  image of $\phi$ will be isomorphic to $D_{2n}$ (with isomorphism $\phi$).
+  So we know $\phi$ must be injective, otherwise $ |Im(\phi)| < |D_{2n}|$ which
+  we know is impossible.
+
+  \end{itemize}
+
+\item Page 41 \#26. In the same way as the last problem we will show that
+      $\phi(i)$ and $\phi(j)$ satisfy all the same relations as $i$ and $j$
+      satisfy as generators of $Q_8$. That is: $\phi(i)^4 = I$,
+      $\phi(i)^2 = \phi(j)^2$, and $\phi(j)^{-1}\phi(i)\phi(j)=\phi(i)^{-1}$.
+
+      The first one is easy; since $\phi(i)$ is diagonal we have $\phi(i)^2 =
+      -I$ and $(\phi(i)^2)^2 = \phi(i)^4 = I$. We get the second one almost as
+      easily:
+      $$
+      \phi(j)^2=
+      \begin{bmatrix}
+        0 & -1\\
+        1 & 0
+      \end{bmatrix}
+      \begin{bmatrix}
+        0 & -1\\
+        1 & 0
+      \end{bmatrix}
+      =
+      \begin{bmatrix}
+        -1 & 0\\
+        0 & -1
+      \end{bmatrix}
+      =\phi(i)^2
+      $$
+
+      Then we have to prove the third relation:
+
+      \begin{align*}
+        \begin{bmatrix}
+          0 & -1\\
+          1 &  0
+        \end{bmatrix}^{-1}
+        \begin{bmatrix}
+          \sqrt{-1} & 0\\
+          0 & -\sqrt{-1}
+        \end{bmatrix}
+        \begin{bmatrix}
+          0 & -1\\
+          1 & 0
+        \end{bmatrix}
+        &=
+        \begin{bmatrix}
+           0 & 1\\
+          -1 & 0
+        \end{bmatrix}
+        \begin{bmatrix}
+          \sqrt{-1} & 0 \\
+           0 & -\sqrt{-1}
+        \end{bmatrix}
+        \begin{bmatrix}
+          0 & -1\\
+          1 & 0
+        \end{bmatrix}\\
+        &=
+        \begin{bmatrix}
+          0 & -\sqrt{-1}\\
+         -\sqrt{-1} & 0
+        \end{bmatrix}
+        \begin{bmatrix}
+          0 & -1\\
+          1 & 0
+        \end{bmatrix}\\
+        &=
+        \begin{bmatrix}
+          -\sqrt{-1} & 0 \\
+           0 & \sqrt{-1}
+        \end{bmatrix}
+      \end{align*}
+
+      This proves it. We know that $\phi(i)$ and $\phi(j)$ as elements of
+      $GL_2(\mathbb{C})$ satisfy all the relations that generate $Q_8$. So just
+      like before, $\phi$ will be an injective homomorphism, and the image of
+      $\phi$ will be isomorphic to $Q_8$.
 
 \item Page 48 \#3
+      We'll do both parts by constructing the Cayley tables.
+      \begin{table}[h]
+      \centering
+      \caption{The Other Subset}
+      \begin{tabular}{c|cccc}
+        $\circ$ &1      &$r^2$  &$s$    &$sr^2$  \\
+        \hline
+        1       &1      &$r^2$  &$s$    &$sr^2$  \\
+        $r^2$   &$r^2$  &1      &$sr^2$ &$s$     \\
+        $s$     &$s$    &$sr^2$ &1      &$r^2$   \\
+        $sr^2$  &$sr^2$ &$s$    &$r^2$  &1
+      \end{tabular}
+      \end{table}
 
-\item Page 48 \#10(a).
+      \begin{table}[h]
+      \centering
+      \caption{One Subset}
+      \begin{tabular}{c|cccc}
+        $\circ$ &1      &$r^2$  &$sr$   &$sr^3$  \\
+        \hline
+        1       &1      &$r^2$  &$sr$   &$sr^3$  \\
+        $r^2$   &$r^2$  &1      &$sr^3$ &$sr$    \\
+        $sr$    &$sr$   &$sr^3$ &1      &$r^2$   \\
+        $sr^3$  &$sr^3$ &$sr$   &$r^2$  &1
+      \end{tabular}
+      \end{table}
+      Because their Cayley Tables are both tables of groups of order 4, these
+      sets must be subgroups.
+
+\item Page 48 \#10(a). Let $H$ and $K$ be subgroups of $G$. Consider
+      $H \cap K$. To prove $H \cap K$ is a subgroup we will show it is closed
+      under multiplication and inverses. Let $x \in H \cap K$, because $x \in H$
+      and $H$ is a subgroup $x^{-1} \in H$; likewise $x^{-1} \in K$.
+      Therefore $x^{-1} \in H \cap K$.
+
+      Consider $x,y \in H \cap K$. Well, $x,y \in H$ so $xy \in H$, likewise
+      $xy \in K$. So we have $xy \in H \cap K$. We conclude $H \cap K$ is a
+      subgroup.
 
 \item Page 60 \#1.
+      Find all the subgroups of $Z_45 = \langle x \rangle$, giving a generator
+      for each. $Z_45$ has subgroups of order 45, 15, 9, 5, 3, and 1. To
+      generate these subgroups we can do it in this order: $|\langle 1 \rangle|
+      = 45$, $|\langle 3 \rangle| = 15$, $|\langle 5 \rangle| = 9$, $|\langle 15
+      \rangle| = 3$, $|\langle 0 \rangle| = 1$. The picture of subgroup
+      containment looks like this.
 
-\item Page 60 \#3.
+\begin{figure}[h]
+  \centering
+\begin{tikzpicture}[node distance=2cm]
+\title{Subgroups of $\mathbb{Z}_{45}$}
+\node(Z1)                           {$\langle 1 \rangle$};
+\node(Z5)       [below right of=Z1] {$\langle 5 \rangle$};
+\node(Z3)       [below left of=Z1]  {$\langle 3 \rangle$};
+\node(Z15)      [below left of=Z5]  {$\langle 15 \rangle$};
+\node(Z9)       [below left of=Z3]  {$\langle 9 \rangle$};
+\node(Z0)       [below left of=Z15] {$\langle 0 \rangle$};
 
-\item Page 60 \#12(a).
+\draw(Z1)      --  (Z5);
+\draw(Z1)      --  (Z3);
+\draw(Z5)      --  (Z15);
+\draw(Z3)      --  (Z15);
+\draw(Z3)      --  (Z9);
+\draw(Z15)     --  (Z0);
+\draw(Z9)      --  (Z0);
+
+
+\end{tikzpicture}
+\caption{Subgroups of $\mathbb{Z}_{45}$}
+\end{figure}
+\item Page 60 \#3. The generators of $\mathbb{Z}/48\mathbb{Z}$ will be numbers
+      less than $48$ and relatively prime with $48$. These are 1, 5, 7, 11, 13,
+      17, 19, 23, 25, 29, 31, 35, 37, 41, 43, and 47.
+
+\item Page 60 \#12(a). $Z_2 \times Z_2$ is not cyclic. The group has order $4$
+      but the orders of its elements are: $|(0,0)|=1$, $|(1,0)|=2$, $|(1,1)|=2$,
+      and $|(0,1)|=2$. $Z_2 \times Z_2$ has no elements of order 4 so it is not
+      cyclic.
 \end{enumerate}
 
 \end{document}
