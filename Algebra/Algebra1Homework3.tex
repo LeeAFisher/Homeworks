@@ -19,11 +19,11 @@
 
       To prove the order is equal to $n$ suppose there is a $k<n$ for which
       $\phi(x)^k = 1_H$, this means $\phi(x^k) = 1_H$ and that $x^k =
-      \phi^{-1}(1_H)$. Finally $x^k = 1$ which contradicts $|x|=n$. So
+      \phi^{-1}(1_H)$. Finally $x^k = 1_G$ which contradicts $|x|=n$. So
       $|\phi(x)| = |x|$.
 
       If $\phi$ is only a homomorphism we don't get this result. Take
-      $\phi:(\mathbb{Z},+) \to (\mathbb{Z_2},+)$ by $\phi(x) = x \textrm{mod}2$.
+      $\phi:(\mathbb{Z},+) \to (\mathbb{Z}_2,+)$ by $\phi(x) =x\textrm{ mod }2$.
       $\phi$ is a homomorphism but $|1| = \infty$ and $|\phi(1)| = 2$.\\
 
 \item Page 40 \#3. Let $\phi: G \to H$ be an isomorphism. Consider $a,b \in G$.
@@ -36,24 +36,25 @@
 
       More generally, if $\phi:G \to H$ is a homomorphism and $G$ is abelian
       then $H$ will be abelian provided $\textrm{Im}(\phi) = H$. In other words,
-      so $\phi$ must be onto to ensure that if $G$ is abelian, then so is $H$.\\
+      $\phi$ must be onto to ensure that if $G$ is abelian, then so is $H$.\\
 
-\item Page 40 \#4. Consider the multiplicative groups $\mathbb{R}-{0}$ and
-      $\mathbb{C}-{0}$. Consider, for sake of contradiction, an isomorpism
-      $\phi: \mathbb{C}-{0} \to \mathbb{R}-{0}$. Now, $\phi(i) \in
-      \mathbb{R}-{0}$. Say $\phi(i) = x$, then we have $\phi(i)^2 = x^2$, which
-      means $x^2 = \phi(-1)$.
+\item Page 40 \#4. Consider the multiplicative groups $\mathbb{R}-\{ 0\}$ and
+      $\mathbb{C}-\{ 0\}$. As well, for sake of contradiction, an isomorpism
+      $\phi: \mathbb{C}-\{ 0\} \to \mathbb{R}-\{ 0\}$. Now, $\phi(i) \in
+      \mathbb{R}-\{ 0\}$. Say $\phi(i) = x$, then we have $\phi(i)^2 = x^2$,
+      which means $x^2 = \phi(-1)$.
 
       We will now prove $\phi(-1) = -1$. We have $\phi(-1)^2 = \phi(1) = 1$.
       This means $\phi(-1)$ equals either $1$ or $-1$. If $\phi(-1) = 1$ then
-      $\phi(-1) = \phi(1)$ which contradicts $\phi$ being one to one. So, since
+      $\phi(-1) = \phi(1)$ which contradicts $\phi$ being one to one. Since
       $\phi(-1) = -1$ we have $x^2 = -1$, where $x$ is real. This equation has
       no solutions over the real numbers, this contradicts $\phi$ being well
-      defined. Thus the multiplicative groups $\mathbb{C} -{0}$ and
-      $\mathbb{R} -{0}$ are not isomorphic.\\
+      defined. Thus the multiplicative groups $\mathbb{C}-\{ 0\}$ and
+      $\mathbb{R} -\{ 0\}$ are not isomorphic.\\
 
 \item Page 40 \#7. $D_8$ and $Q_8$ are not isomorphic. $D_8$ has 4 elements of
-      order 2 (V,H,D,D') while $Q_8$ has only one element of order 2 (-1).\\
+      order 2 $(s,sr,sr^2,sr^3)$ while $Q_8$ has only one element of order 2
+      (-1).\\
 
 \item Page 40 \#17. Let G be a map and consider the map $\phi:G \to G$ by
       $\phi(g) = g^{-1}$.\\
@@ -69,7 +70,7 @@
 
 \item Page 41 \#25.
   \begin{itemize}
-  \item Consider a vector in polar coordinates, and the product:
+  \item Take a vector in polar coordinates, and the product:
   \begin{align}
     \begin{bmatrix}
       \cos(\theta) & -\sin(\theta)\\
@@ -287,8 +288,8 @@
       subgroup.
 
 \item Page 60 \#1.
-      Find all the subgroups of $Z_45 = \langle x \rangle$, giving a generator
-      for each. $Z_45$ has subgroups of order 45, 15, 9, 5, 3, and 1. To
+      Find all the subgroups of $\mathbb{Z}_{45} = \langle x \rangle$, giving a generator
+      for each. $\mathbb{Z}_{45}$ has subgroups of order 45, 15, 9, 5, 3, and 1. To
       generate these subgroups we can do it in this order: $|\langle 1 \rangle|
       = 45$, $|\langle 3 \rangle| = 15$, $|\langle 5 \rangle| = 9$, $|\langle 15
       \rangle| = 3$, $|\langle 0 \rangle| = 1$. The picture of subgroup
