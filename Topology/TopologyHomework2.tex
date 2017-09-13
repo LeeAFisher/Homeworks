@@ -11,7 +11,26 @@
 \indent \textbf{2017-09-12}
 
 \begin{enumerate}
-\item 
+\item Show that a space is simply connected if and only if all paths having the
+same endpoints are fixed endpoint homotopic.
+
+$\rightarrow$ Suppose $X$ is simply connected. Consider two points $x_0$ and 
+$x_1$, and two paths $\alpha$ and $\beta$ connecting the points. We say 
+$\bar{\beta}$ is $\beta(1-t)$. We can say that $[\alpha] \cong [\alpha] * 
+[\bar{\beta} * \beta]$ because the path $[\bar{\beta} * \beta]$ is homotopic to
+a constant path at $x_1$. Then by associativity we have $[\alpha] \cong [\alpha 
+* \bar{\beta}] * [\beta]$. Next, because $[\alpha *\bar{\beta}]$ is a loop 
+based at $x_0$ we have $[\alpha] \cong [1] * [\beta]$. Finally we get $[\alpha]
+\cong [\beta]$ because $[1]$ is the identity. Thus $\alpha$ and $\beta$ are 
+fixed endpoint homotopic.
+
+
+$\leftarrow$ Suppose any two paths in $X$ are fixed end point homotopic. 
+Consider a loop that begins and ends at the point $x_0$ and a path that is 
+constant at $x_0$. These paths have the same endpoints so they are homotopic.
+Thus any loop based at $x_0$ will be homotopic to the path that is constant at
+$x_0$, and $X$ is by definition simply connected. 
+
 \item 
 \item 
 \item 
