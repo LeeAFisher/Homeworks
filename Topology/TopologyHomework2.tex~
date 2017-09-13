@@ -1,0 +1,22 @@
+\documentclass[12pt]{report}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{amssymb,amsmath,textcomp}
+\title{\textbf{Algebra I: Homework 1}}
+\author{Lee Fisher}
+\date{}
+\begin{document}
+
+\textbf{Topology Homework 2}\\
+\indent \textbf{Lee Fisher}\\
+\indent \textbf{2017-09-12}
+
+\begin{enumerate}
+\item 
+\item 
+\item 
+\item 
+\item 
+\item 
+\end{enumerate}
+
+\end{document}
