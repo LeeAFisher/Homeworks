@@ -1,6 +1,8 @@
 \documentclass[12pt]{report}
 \usepackage[margin=0.5in]{geometry}
 \usepackage{amssymb,amsmath,textcomp}
+\providecommand{\abs}[1]{\lvert#1\rvert} \providecommand{\norm}[1]{\lVert#1\rVert}
+
 \title{\textbf{Algebra I: Homework 1}}
 \author{Lee Fisher}
 \date{}
@@ -28,12 +30,30 @@ fixed endpoint homotopic.
 $\leftarrow$ Suppose any two paths in $X$ are fixed end point homotopic. 
 Consider a loop that begins and ends at the point $x_0$ and a path that is 
 constant at $x_0$. These paths have the same endpoints so they are homotopic.
-Thus any loop based at $x_0$ will be homotopic to the path that is constant at
+Thus any loop based at $x_0$ will be homotopic to the path that is constant at 
 $x_0$, and $X$ is by definition simply connected. 
 
+\item We need to show that $(g \circ f)_* = g_* \circ f_*$. This is not so 
+hard. Let $[\gamma] \in \pi_1(X,x_0)$. Then we have $(g \circ f)_* \circ 
+[\gamma] = [g \circ f \circ \gamma]$ by definition. On the other hand, lets 
+look at $g_* \circ f_* \circ [\gamma]$, this is $g_* ( f_*([\gamma]))$ which is
+$g_*([f \circ \gamma])$, and finally $[g \circ f \circ \gamma]$. So the maps are 
+equal.
+
+
 \item 
-\item 
-\item 
+
+
+\item Let $p: E \to B$ be a covering map where $B$ is connected and there is 
+some point $b \in B$ for which $|p^{-1}(b)| = k$. Consider two subsets of $B$
+where $U = \{x \in B : \abs{p^{-1}(x)} = k \}$ and $V = \{y \in B : \abs{p^{-1}(y)} 
+\neq k \}$. We can say that if $x \in U$, because $p$ is a covering map, there 
+will be some open set containing $x$ that is in $U$; therefore $U$ is open. As 
+well if $y \in V$ then there will be an open set containing $y$ that is in $V$;
+so $V$ also is open. Since $p$ is an onto function we have that $U \cap V = 
+\emptyset$ and $U \cup V = B$. If $V$ is nonempty this forms a separation of 
+$B$. So since $B$ is connected we have $V = \emptyset$ and $U = B$.  
+
 \item 
 \item 
 \end{enumerate}
