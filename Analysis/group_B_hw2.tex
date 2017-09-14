@@ -1,0 +1,208 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amscd}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{listings}
+\usepackage{enumerate}
+
+\textwidth=15cm \textheight=22cm \topmargin=0.5cm \oddsidemargin=0.5cm \evensidemargin=0.5cm
+
+\newcommand{\sk}{\vskip 10mm}
+\newcommand{\bb}[1]{\mathbb{#1}}
+\newcommand{\ra}{\rightarrow}
+
+\theoremstyle{plain}
+\newtheorem{problem}{Problem}
+\newtheorem{lemma}{Lemma}[problem]
+
+\theoremstyle{remark}
+\newtheorem{tpart}{}[problem]
+\newtheorem*{ppart}{}
+\begin{document}
+
+\begin{flushright}
+  MATH 7311: HW 2\\
+  Sean Bibby,
+  Lee Fisher,
+  Lucas Meyers,
+  Hunter Patton
+\end{flushright}
+
+\begin{problem}
+
+\end{problem}
+
+\begin{proof}
+
+\end{proof}
+
+\sk
+
+\begin{problem}[3.3]
+
+\end{problem}
+
+\textbf{Will be cleaned up later. But it should be mostly correct.}
+
+\begin{lemma}
+  The product of two perfect sets are perfect.
+\end{lemma}
+
+\begin{proof}
+  Let $X,Y$ be perfect sets. Consider $(x,y)\in \bar{X\times Y}$.
+  Let $U$ be an open neighborhood of $x$. Then $U\times Y$ is an
+  open neighborhood of $(x,y)$. However since $(x,y)$ is a
+  limit point of $X\times Y$ it follows that $U\times Y\cap X\times Y\neq\phi$.
+  This implies that $U\cap X\neq\phi$. Since this holds for any
+  open neighborhood $x$ is a limit point of $X$ and as
+  such $x\in X$. By the same reasoning $y\in Y$ which implies
+  that $(x,y)\in X\times Y$. Therefore $X\times Y$ contains all of its
+  limit points.
+
+  Next suppose that $(x,y)\in X\times Y$. Then $x\in X$ and $y\in Y$
+  and so it follows that $x$ and $y$ are limit points of
+  $X$ and $Y$ respectively as they are perfect. This in
+  turn implies that $(x,y)$ is a limit point of $X\times Y$.
+
+  Therefore the product of two perfect sets is perfect.
+\end{proof}
+
+\begin{proof}
+  Define $f([a,b])=[a,\frac{a+b}{3}]\cup [\frac{2(a+b)}{3},b]$ and
+  $f(\bigcup_1^n[a_k,b_k])=\bigcup_1^nf([a_k,b_k])$. Then we can define
+  $C_k=f^k([0,1])$ and the Cantor set is defined as $C=\bigcap_1^\infty C_k$.
+
+  Similarly we can define
+  \[
+    g(\left[a,b\right]\times \left[c,d\right])=\left[a,\frac{a+b}{3}\right]\times \left[c,\frac{c+d}{3}\right]
+    \cup \left[a,\frac{a+b}{3}\right]\times \left[\frac{2(c+d)}{3},d\right]
+    \cup \left[\frac{2(a+b)}{3},b\right]\times \left[c,\frac{c+d}{3}\right]
+    \cup \left[\frac{2(a+b)}{3},b\right]\times \left[\frac{2(c+d)}{3},d\right]
+  \]
+  and $g(\bigcup_1^n[a_k,b_k]\times[c_k,d_k])=\bigcup_1^ng([a_k,b_k],[c_k,d_k])$.
+  Then let $D_k=g^k([0,1]^2)$ and define $D=\bigcap_1^\infty D_k$.
+
+  Note that $g([a,b]\times[c,d])=f([a,b])\times f([c,d])$.
+
+  Now we will show that $D=C^2$, that $|D|=0$, and that $D$ is perfect.
+  \begin{itemize}
+  \item First we'll show that $D_k=C_k^2$. For $k=0$ we have
+    $g([0,1]^2)=[0,1]^2=[0,1]\times [0,1]=f([0,1])\times f([0,1])$.
+    Assume that $D_n=C_n^2$ for $n<k$.Then for $k$
+    we have $D_k=g^k([0,1]^2)=g(g^{k-1}([0,1]^2))=
+    g(f^{k-1}([0,1])\times f^{k-1})=f^k([0,1])\times f^k([0,1])=C_k^2$
+    Therefore by induction $D_k=C_k^2$ for all $k$.
+
+    Let $(x,y)\in D$. Then $(x,y)\in D_k$ for all $k$. However
+    $D_k=C_k^2$ which implies that $x,y\in C_k$ for all $k$ and
+    as such $x,y\in C$. Therefore $D\subset C$.
+
+    Next let $(x,y)\in C^2$. Then $x,y\in C_k$ for all $k$. However
+    this implies that $(x,y)\in C_k^2=D_k$ for all $k$ and as
+    such $(x,y)\in D$ and $D\subset C$.
+
+    Therefore $C^2=D$.
+  \item First let us look at how $g$ affects the measure of a set.
+    Let $I=[a,b]\times [a,a+b]$ be a square interval.
+    Then $|I|=b^2$ and if we take $g(I)$ we get four smaller
+    squares with measure $\left(\frac{b}{3}\right)^2=|I|/9$. However
+    since there are four we have $|g(I)|=\frac{4|I|}{9}$ when
+    $I$ is a square.
+
+    Then if we look at $D_k$ the measure of $D_k$ is
+    \[ |D_k|=g^k([0,1]^2)=\left(\frac{4}{9}\right)^k\]
+    We know that $D$ is measurable since it is the countable intersection
+    of measurable sets. Since $D\subset D_k$ for all $k$ it follows that
+    $|D|<\left(\frac{4}{9}\right)^k$ for all $k$ and as such
+    $|D|=0$.
+
+    Therefore the measure of $D$ is $0$.
+  \item From our lemma the product of two perfect sets is perfect.
+    This implies that $C^2=D$ is also perfect.
+
+    Therefore $D$ is a perfect set.
+  \end{itemize}
+\end{proof}
+
+\sk
+
+\begin{problem}[3.7]
+
+\end{problem}
+
+\begin{proof}
+
+\end{proof}
+
+\sk
+
+\begin{problem}[3.9]
+
+\end{problem}
+
+\begin{proof}
+
+\end{proof}
+
+\sk
+
+\begin{problem}[3.10]
+
+\end{problem}
+
+\begin{proof}
+  Let $E_1,E_2$ be measurable sets. Then by Carath\'eodory's Theorem we have that
+  \[ |E_1| = |E_1\cap E_2| + |E_1\setminus E_2\]
+  and
+  \[ |E_2| = |E_1\cap E_2| + |E_2\setminus E_1\]
+  If we add the two equations together we get
+  \[ |E_1| + |E_2| = 2|E_1\cap E_2| + |E_1\setminus E_2| + |E_2\setminus E_1| \]
+  Since $E_1\setminus E_2, E_2\setminus E_1, E_1\cap E_2$ are disjoint it follows
+  from two applications of Lemma $4.7$ of the notes that
+  \[|E_1\cup E_2| = |E_1\Delta E_2| + |E_1\cap E_2| = |E_1\setminus E_2| + |E_2\setminus E_1| + |E_1\cap E_2| \]
+\end{proof}
+
+\sk
+
+\begin{problem}[3.12]
+
+\end{problem}
+
+\begin{proof}
+
+\end{proof}
+
+\sk
+
+\begin{problem}[3.13]
+
+\end{problem}
+\begin{itemize}
+\item \begin{proof} By definition $|E|_i = \sup \{ |F|\}$ where $F$ is a closed
+      subset of $E$. Likewise, $|E|_e = \inf \{ |G|\}$ where $G$ is an open set
+      containing $E$. Consider particular satisfying setss, $F$ and $G$. We know
+      $F \subset G$, so $|F| \leq |G|$. This holds for any pair of sets $F$ and
+      $G$ satisfying the restraint, so we can conclude $|E|_i \leq |E|_e$.
+      \end{proof}
+
+\item \begin{proof}
+      $\rightarrow$ Suppose $E$ is measurable. By Lemma 3.22 we know that for
+      any $\epsilon > 0$ there is a closed $F$, a subset of $E$ for which
+      $|E/F|_e < \epsilon$. Consider $F$, we know from the earlier part that
+      $|F| \leq |E|_i \leq |E|_e$. However, $E = F \cup (E / F)$, so $|E|_e \leq
+      |F| + |E/F|_e < |F| + \epsilon$. Finally we have $|F| \leq |E|_i \leq
+      |E|_e < |F| + \epsilon$. Let $\epsilon$ tend to zero and we have it.
+      $|E|_i = |E|_e$.
+
+      $\leftarrow$ Suppose $|E|_i = |E|_e$. Since these measures are equal, we
+      can say that for any $\epsilon > 0$ there will be $F$ a closed subset of
+      $E$ and $G$ an open superset of $E$ such that, $|G| - |F| < \epsilon$.
+      Consider two such satisfying sets. Then we have $G/E \subset G/F$. Which
+      implies that $|G/E|_e \leq |G/F|_e$. Since $G$ and $F$ are both measurable
+      this simplifies to: $|G/E|_e \leq |G| - |F| < \epsilon$. This is
+      precisely the definition of measurability, so $E$ is measurable.
+      \end{proof}
+\end{itemize}
+\end{document}
