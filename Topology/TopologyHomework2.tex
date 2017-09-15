@@ -16,46 +16,103 @@
 \item Show that a space is simply connected if and only if all paths having the
 same endpoints are fixed endpoint homotopic.
 
-$\rightarrow$ Suppose $X$ is simply connected. Consider two points $x_0$ and 
-$x_1$, and two paths $\alpha$ and $\beta$ connecting the points. We say 
-$\bar{\beta}$ is $\beta(1-t)$. We can say that $[\alpha] \cong [\alpha] * 
+$\rightarrow$ Suppose $X$ is simply connected. Consider two points $x_0$ and
+$x_1$, and two paths $\alpha$ and $\beta$ connecting the points. We say
+$\bar{\beta}$ is $\beta(1-t)$. We can say that $[\alpha] \cong [\alpha] *
 [\bar{\beta} * \beta]$ because the path $[\bar{\beta} * \beta]$ is homotopic to
-a constant path at $x_1$. Then by associativity we have $[\alpha] \cong [\alpha 
-* \bar{\beta}] * [\beta]$. Next, because $[\alpha *\bar{\beta}]$ is a loop 
+a constant path at $x_1$. Then by associativity we have $[\alpha] \cong [\alpha
+* \bar{\beta}] * [\beta]$. Next, because $[\alpha *\bar{\beta}]$ is a loop
 based at $x_0$ we have $[\alpha] \cong [1] * [\beta]$. Finally we get $[\alpha]
-\cong [\beta]$ because $[1]$ is the identity. Thus $\alpha$ and $\beta$ are 
+\cong [\beta]$ because $[1]$ is the identity. Thus $\alpha$ and $\beta$ are
 fixed endpoint homotopic.
 
 
-$\leftarrow$ Suppose any two paths in $X$ are fixed end point homotopic. 
-Consider a loop that begins and ends at the point $x_0$ and a path that is 
+$\leftarrow$ Suppose any two paths in $X$ are fixed end point homotopic.
+Consider a loop that begins and ends at the point $x_0$ and a path that is
 constant at $x_0$. These paths have the same endpoints so they are homotopic.
-Thus any loop based at $x_0$ will be homotopic to the path that is constant at 
-$x_0$, and $X$ is by definition simply connected. 
+Thus any loop based at $x_0$ will be homotopic to the path that is constant at
+$x_0$, and $X$ is by definition simply connected.
 
-\item We need to show that $(g \circ f)_* = g_* \circ f_*$. This is not so 
-hard. Let $[\gamma] \in \pi_1(X,x_0)$. Then we have $(g \circ f)_* \circ 
-[\gamma] = [g \circ f \circ \gamma]$ by definition. On the other hand, lets 
+\item We need to show that $(g \circ f)_* = g_* \circ f_*$. This is not so
+hard. Let $[\gamma] \in \pi_1(X,x_0)$. Then we have $(g \circ f)_* \circ
+[\gamma] = [g \circ f \circ \gamma]$ by definition. On the other hand, lets
 look at $g_* \circ f_* \circ [\gamma]$, this is $g_* ( f_*([\gamma]))$ which is
-$g_*([f \circ \gamma])$, and finally $[g \circ f \circ \gamma]$. So the maps are 
+$g_*([f \circ \gamma])$, and finally $[g \circ f \circ \gamma]$. So the maps are
 equal.
 
+\item Let $p:E \to B$ be a covering map with $p(e_0) = b_0$. Let $F:[0,1]\times
+[0,1] \to B$ be continuous with $p(0,0) = b_0$. From the uniqueness of path
+lifting we can lift the edges of the domain, the paths $F(t,0)$ and $F(0,s)$, to
+unique paths in $E$.
 
-\item 
+Now we procede by cutting the domain of $F$ into small closed cells. We start
+with two lists $0=t_1 < t_2 \dots < t_n = 1$ and $0 = s_1 < s_2 \dots < s_m =1$,
+where for each $I_a \times J_b = [t_a,t_{a+1}] \times [s_b,s_{b+1}]$ we have an
+open set $U_{a,b}$ containing $F(I_a \times J_b)$ where $p^{-1}(U_{a,b})$ is a
+disjoint union of open sets in $E$.
+
+Next we will lift one square at a time. We'll first lift all of the squares in
+row one $I_a \times J_1$, and then procede to lift the next row, squares like
+$I_a \times J_2$, and so on. Now let's lift the first square. We know that the
+lift of the image of the bottom and left edges of this square lift to unique
+paths in $E$. As well, the image of the entire square will lift to a collection
+of disjoint subsets of $E$. Since the unique paths $\tilde{F}(t,0)$ and
+$\tilde{F}(0,s)$ agree on the point $(0,0)$, there will be a unique subset of
+$E$ for which  $\tilde{F}|_{I_1 \times J_1}$ will match $\tilde{F}$ on the
+boundaries. So we extend the lift to the first square.
+
+As we procede to all other squares we can see that each subsequent square will
+share two adjacent sides with either a previous square or the edge of the
+domain. In this way we can lift the entire function on $[0,1] \times [0,1]$ to a
+unique $\tilde{F}$.
+
+For the last part we suppose $F$ is a path homotopy. This means $F(t,0)$ and
+$F(t,1)$ are fixed. When we specify that $\tilde{F}(0,0) = e_0$ we make a unique
+lift to an $\tilde{F}$ this one must also have $\tilde{F}(t,0)$ and
+$\tilde{F}(t,1)$ fixed. Then by continuity we have $\tilde{F}(0,s)$ and
+$\tilde{F}(1,s)$ are two homotopic paths in $E$.
 
 
-\item Let $p: E \to B$ be a covering map where $B$ is connected and there is 
+\item Let $p: E \to B$ be a covering map where $B$ is connected and there is
 some point $b \in B$ for which $|p^{-1}(b)| = k$. Consider two subsets of $B$
-where $U = \{x \in B : \abs{p^{-1}(x)} = k \}$ and $V = \{y \in B : \abs{p^{-1}(y)} 
-\neq k \}$. We can say that if $x \in U$, because $p$ is a covering map, there 
-will be some open set containing $x$ that is in $U$; therefore $U$ is open. As 
+where $U = \{x \in B : \abs{p^{-1}(x)} = k \}$ and $V = \{y\in B:\abs{p^{-1}(y)}
+\neq k \}$. We can say that if $x \in U$, because $p$ is a covering map, there
+will be some open set containing $x$ that is in $U$; therefore $U$ is open. As
 well if $y \in V$ then there will be an open set containing $y$ that is in $V$;
-so $V$ also is open. Since $p$ is an onto function we have that $U \cap V = 
-\emptyset$ and $U \cup V = B$. If $V$ is nonempty this forms a separation of 
-$B$. So since $B$ is connected we have $V = \emptyset$ and $U = B$.  
+so $V$ also is open.
 
-\item 
-\item 
+Since $p$ is an onto function we have that $U \cap V = \emptyset$ and $U \cup V
+= B$. If $V$ is nonempty this forms a separation of $B$. So since $B$ is
+connected we have $V = \emptyset$ and $U = B$.
+
+\item Suppose $B$ is simply connected, $E$ is path connected, and $p:E \to B$ is
+a covering map. Say that $p(e_0) = b_0$.
+
+We can define a map $\phi: \pi_1(B,b_0) \to p^{-1}(b_0)$; we say if $[f] \in
+\pi_1(B,b_0)$ then $[f]$ lifts to a unique class of paths beginning at $e_0$,
+$[\tilde{f}]$, we say $\phi([f]) = [\tilde{f}](1)$. The map $\phi$ sends every
+loop in $\pi_1(B,b_0)$ to the endpoint of its lift in $E$.
+
+Since $E$ is path connected, the map $\phi$ will be surjective. Every path in
+$E$ connecting $e_0$ to another point, say $e_1$, in $p^{-1}(b_0)$ will be
+projected to a loop in $B$ by $p$. Therefore there will be at least one loop for
+which $\phi([f]) = e_1$.
+
+We know that $|\pi_1(B,b_0)| \geq |p^{-1}(b_0)|$ since $\phi$ is onto. As well
+$\pi_1(B,b_0)$ is trivial, because $B$ is simply connected. This means
+$|p^{-1}(b_0)| = 1$. So, $p$ covers the point $b_0$ by exactly one point. Now
+by the previous we know that $p$ is a $1$-fold covering, also know as injective.
+Since covering maps are surjective and have open preimages by supposition we
+have that $p$ is a homeomorphism.
+
+\item Let $h: (X,x_0) \to (Y,y_0)$ be an inessential map. Then there is a
+homotopy $\eta$ that deforms $h$ to a constant map on $Y$. Consider the induced
+map $h_*: \pi_1(X,x_0) \to \pi_1(Y,y_0)$. If $[x] \in \pi_1(X,x_0)$ we can
+consider $h_* \circ[x] = [h \circ x]$ and since $\eta$ is a homotopy we have
+$\eta \circ [h \circ x] \cong [h \circ x]$, but also $\eta \circ [h \circ x]
+\cong [(\eta \circ h) \circ x] \cong [1_{y_0} \circ x] \cong [1]$. This tells us
+that $h_*([x]) = 1$. So the map induced by an inessential map is trivial.
+
 \end{enumerate}
 
 \end{document}
