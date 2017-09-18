@@ -16,14 +16,15 @@
 First we need to show that $N$ is a normal subgroup of $G$.
 For a fixed $g \in G$, consider the coset $gN$. Elements in $gN$ are of the form
 $gn$. Where $n$ has the property that for any $x \in G$ there is an $h \in H$
-where $n = xhx^{-1}$. Let $x = g^{-1}$, then we have $n = g^{-1}h_*g$, and also
+with $n = xhx^{-1}$. Let $x = g^{-1}$, then we have $n = g^{-1}h_*g$, and also
 that $gn = h_*g$ for some $h_* \in H$.\\
 
-To conclude we need to prove that $h_* \in N$ then we'll have $gn = h_*g =
-eh_*e^{-1}g \in Ng$. We know $h_* = gng^{-1}$ where $n \in N$. Consider a
-$y \in G$ then $yh_*y^{-1} = ygng^{-1}y^{-1} = (yg)n(yg)^{-1}$. However, we
-know $yg \in G$ and $n \in eHe^{-1} = H$. So we conclude, $h_* \in N$ and $gn =
-h_*g \in Ng$. So $gN = Ng$ and $N$ is normal in $G$.\\
+To conclude we need to prove that $h_* \in \cap xHx^{-1} =N$ then we'll have $gn
+= h_*g = eh_*e^{-1}g \in Ng$. We know $h_* = gng^{-1}$ where $n \in N$. Consider
+a $y \in G$ then $yh_*y^{-1} = ygng^{-1}y^{-1} = (yg)n(yg)^{-1}$. However, we
+know $yg$ is an arbitrary element in $G$ and $n \in eHe^{-1} = H$. So we
+conclude, $h_* \in N$ and $gn = h_*g \in Ng$. So $gN = Ng$ and $N$ is normal in
+$G$.\\
 
 Now to prove that $N$ is the largest normal subgroup contained in $H$. Let $M$
 be a normal subgroup of $G$ contained in $H$. Consider $m \in M$ we know that
