@@ -1,0 +1,275 @@
+\documentclass[12pt]{report}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{amssymb,textcomp,amsmath,tikz}
+
+
+\begin{document}
+
+\textbf{Algebra 1 Homework 4}\\
+\indent \textbf{Lee Fisher}\\
+\indent \textbf{2017-09-17}
+
+\vspace{0.3cm}
+
+\noindent {\bf 2.7 \#1:}
+
+First we need to show that $N$ is a normal subgroup of $G$.
+For a fixed $g \in G$, consider the coset $gN$. Elements in $gN$ are of the form
+$gn$. Where $n$ has the property that for any $x \in G$ there is an $h \in H$
+where $n = xhx^{-1}$. Let $x = g^{-1}$, then we have $n = g^{-1}h_*g$, and also
+that $gn = h_*g$ for some $h_* \in H$.\\
+
+To conclude we need to prove that $h_* \in N$ then we'll have $gn = h_*g =
+eh_*e^{-1}g \in Ng$. We know $h_* = gng^{-1}$ where $n \in N$. Consider a
+$y \in G$ then $yh_*y^{-1} = ygng^{-1}y^{-1} = (yg)n(yg)^{-1}$. However, we
+know $yg \in G$ and $n \in eHe^{-1} = H$. So we conclude, $h_* \in N$ and $gn =
+h_*g \in Ng$. So $gN = Ng$ and $N$ is normal in $G$.\\
+
+Now to prove that $N$ is the largest normal subgroup contained in $H$. Let $M$
+be a normal subgroup of $G$ contained in $H$. Consider $m \in M$ we know that
+$m \in H$ by supposition and that because $M$ is normal, for all $g \in G$,
+$gmg^{-1} \in M$. So $m \in N$. Any normal subgroup contained in $H$ must be a
+subset of $N$.\\
+
+
+\noindent {\bf 2.7 \#2.}
+
+\begin{enumerate}
+  \item \begin{itemize}
+        \item Reflexivity: $a \sim a$ because $a \in HaK$. Because $H$ and $K$
+              are both subgroups and $eae \in HaK$.
+        \item Symmetry: Suppose $a \sim b$. This means $a \in HbK$. For some $h
+              \in H$ and $k \in K$, $a = hbk$. With some algebra: $h^{-1}ak^{-1}
+               = b$, so $b \in HaK$.
+        \item Transitivity: Suppose $a \sim b$ and $b \sim c$. So $a \in HbK$
+              and $b \in HcK$, so $a = h_1bk_1$ and $b = h_2ck_2$, therefore
+              $a = (h_1h_2)c(k_1k_2)$, and $a \in HcK$. So $a \sim c$ and we're
+              done.
+        \end{itemize}
+  \item Suppose $f(aW) = f(bW)$
+        \begin{align*}
+          f(aW) &= f(bW) \\
+           aWxK &= bWxK \\
+        \textrm{This implies $\exists e,k_1 \in K$ such that:} &\\
+            aWx &= bWxk_1 \\
+        \textrm{As well $\exists e,w \in W$ such that:} &\\
+            awx &= bxk_1 \\
+            a(xk_2x^{-1})x &= bxk_1 \\
+            axk_2 &= bxk_1 \\
+            b^{-1}axk_2 &=xk_1 \\
+            b^{-1}ax &= xk_1k_2^{-1}\\
+            b^{-1}a &= xk_1k_2^{-1}x^{-1}\\
+            &\to b^{-1}a \in xKx^{-1}
+        \end{align*}
+
+        We also know by supposition that $a$ and $b$ are in $H$, and that since
+        $H$ is a subgroup $b^{-1}a$ is also in $H$. So $b^{-1}a \in W$ $\to$ $aW
+        = bW$. So we know $f$ is injective.\\
+
+        Next part: Let $L$ be the set of representatives of left cosets of $W$
+        in $H$. Consider: $L_h = \{ hxK |  h \in L\}$. We need $L_{h_1} \cap
+        L_{h_2} = \emptyset$ when $h_1 \neq h_2$ and $\cup L_h = HxK$.\\
+
+        First, suppose $a \in L_{h_1}$ and $a \in L_{h_2}$. This means that $a =
+        h_1xk_1$ and $a = h_2xk_2$. So $h_1xk_1 = h_2xk_2$ implies $h_2^{-1}h_1=
+        xk_2k_1^{-1}x^{-1}$. This means $h_1$ and $h_2$ lie in the same left
+        coset of $W$. So we know the $L_h$ are disjoint.\\
+
+        Secondly, suppose $a \in HxK$. This means $a = hxk$, thus $a \in L_h$.
+        So for every $a \in HxK$ there is an $L_h$ that contains $a$. So $\cup
+        L_h = HxK$. Also $\cup L_h$ cannot exceed $HxK$ because each $L_h$
+        contains only elements from $HxK$.\\
+
+        Last part (this was mostly copy + pasted): Let $R$ be the set of
+        representatives of right cosets of $M = x^{-1}Hx \cap K$ in $K$.
+        Consider: $R_k = \{ Hxk |  k \in R\}$. We need $R_{k_1} \cap R_{k_2} =
+        \emptyset$ when $k_1 \neq k_2$ and $\cup R_k = HxK$.\\
+
+        First, suppose $a \in R_{k_1}$ and $a \in L_{k_2}$. This means that $a =
+        h_1xk_1$ and $a = h_2xk_2$. So $h_1xk_1 = h_2xk_2$ implies $k_1k_2^{-1}
+        = x^{-1}h_1^{-1}x$. This means $k_1$ and $k_2$ lie in the same right
+        coset of $M$. So we know the $R_k$ are disjoint.\\
+
+        Secondly, suppose $a \in HxK$. This means $a = hxk$, thus $a \in R_k$.
+        So for every $a \in HxK$ there is an $R_l$ that contains $a$. So $\cup
+        R_k = HxK$. Also $\cup R_k$ cannot exceed $HxK$ because each $R_k$
+        contains only elements from $HxK$.\\
+
+  \item Suppose $H$ and $K$ are finite. First we will prove that $|W| = |M|$.
+        Let $f: W \to M$ by $f(w) = x^{-1}wx$. If $w \in W$ then we know
+        $w \in H$ and $\exists k \in K$ where $w = xkx^{-1}$. Now, $f(w) =
+        x^{-1}wx = x^{-1}xkx^{-1}x = k \in K$. So $f(w) \in K$ and also $f(w)
+        \in x^{-1}Hx$. The function is a bijection with inverse given by
+        $f^{-1}(m) = xmx^{-1}$. So $|W| = |M|$.
+
+        We can show that $|HxK| = |H||K|/|W|$ relatively easily. If $h_1xk_1 =
+        h_2xk_2 \in HxK$ then that means $h_1W = h_2W$. So this tells us the
+        number of elements in $HxK$ is the product of the number of elements in
+        $H$ and $K$, not counting elements congruent mod $W$. Thus:
+        $$|HxK| = \frac{|H||K|}{|W|} = \frac{|H||K|}{|M|}.$$
+
+\end{enumerate}
+
+\noindent {\bf 2.8.}
+\begin{enumerate}
+  \item \begin{itemize}
+        \item Let $x,y \in C_G(A)$, consider $xy^{-1}$. We know $ax = xa$ for
+              all $a \in A$ and $ay = ya \to a = yay^{-1} \to y^{-1}a =
+              ay^{-1}$. Therefore $axy^{-1}= (ax)y^{-1} = (xa)y^{-1} =
+              x(ay^{-1}) = xy^{-1}a$ and $xy^{-1} \in C_G(A)$. So $C$ is a
+              subgroup of $G$.
+
+        \item Let $x,y \in N_G(A)$, consider $xy^{-1}$. We know $xAx^{-1} = A$
+              and $yAy^{-1} = A \to A = y^{-1}Ay$. Therefore $xy^{-1}A(xy^{-1})
+              ^{-1}=x(y^{-1}Ay)x^{-1} = xAx^{-1} = A$. We're done, $N_G(A)$ is a
+              subgroup of G.
+
+        \item Let $x \in C_G(A)$, so for all $a \in A$ $xa = ax$. This implies
+        that $xA = Ax$. This means $xAx^{-1} = A$, so $x \in N_G(A)$.
+        \end{itemize}
+
+  \item Suppose that $A$ is a subgroup of $G$. Let $n \in N_G(A)$. We have
+        $nAn^{-1} = A$ by definition of $N_G(A)$. This means $nA = An$ for all
+        $n \in N_G(A)$ and thus $A \trianglelefteq N_G(A)$ and we're done.
+
+  \item Consider $g \in G$. We know that for all $z \in Z(G)$, $gz = zg$. So
+        $gZ(G) = Z(G)g$ and thus $Z(G) \trianglelefteq G$.
+
+  \item Let $[G:H] = 2$ Consider $g \in G$ either $g \in G-H$ or $g \in H$, if
+        $g \in H$ then clearly $gH = Hg$. If $g \in G-H$ then $gH = G-H$ because
+        $H$ has index $2$ and there are only $2$ cosets. From the same logic we
+        have $Hg = G-H$, so $gH = Hg$ and $H$ is normal.\\
+
+        For an example, consider $D_6$. $[D_6:\langle s \rangle] = 3$ but $sr
+        \neq rs$ so $\langle s \rangle$ is not a normal subgroup of $D_6$.
+
+  \item If $n$ is even, $Z(D_{2n}) = \langle r^{n/2} \rangle$. If $n$ is odd
+        $Z(D_{2n}) = e$. We know the rotations will always commute, and that
+        $sr = r^{-1}s$. This means only elements with $r = r^{-1}$ will be in
+        $Z(D_{2n})$, that is $r^2 = 1$. So the center of the odd groups is just
+        the identity, and for the even ones it is the identity and $r^{n/2}$.
+
+  \item Let $N$ be a subgroup of $Q_8$. We know from the structure of $Q_8$ that
+        for every $q \in Q$ and every $n \in N$ either $qn = nq$ or $qn = -nq$.
+        If $N$ is just the group containing $1$ then we're done. If $N$ contains
+        an element $n \neq 1$, then $N$ must contain $-n$ because $i*(-i) =
+        j*(-j) = k*(-k) = 1$ and $-(-1) = 1$. So $N = -N$ as long as
+        $N \neq \{ 1\}$. Then we have $qN = Nq$ for all $q \in Q$. Done.
+
+\end{enumerate}
+
+\noindent {\bf 2.9 \#1.}
+Let $G$ have prime order. We know that if $H$ is a subgroup of $G$ then $|H|$
+divides $|G|$. However, since $|G|$ is prime, we have $|H| = 1$ or $|H| = |G|$.
+Thus $H = G$ or $H = 1$ and $G$ has no nontrivial subgroups. This proves $G$ has
+no non-trivial subgroups.
+
+Also, $\forall g\in G$ we know $g^|G| = 1$, we also know that the order of each
+element must divide evenly into $|G|$, therefore every element has order either
+$|G|$ or $|1|$, we conclude there is at least one generator for $G$, so $G$ is
+cyclic.
+
+\noindent {\bf 2.9 \#2.}
+
+Let $G$ be a group and $H$ be a subgroup of $Z(G)$, also suppose $G/H$ is
+cyclic. Let $G/H = \langle g \rangle$ and let $a,b \in G$. We can write $a =
+g^nh_1$ and $b = g^mh_2$. Then we use group properties:
+\begin{align*}
+ ab                            &= g^nh_1g^mh_2 \\
+\textrm{Since $h_1 \in Z(G) $} &= g^ng^mh_1h_2 \\
+                               &= g^{n+m}h_1h_2\\
+                               &= g^mg^nh_2h_1 \\
+\textrm{Since $h_2 \in Z(G) $} &= g^mh_2g^nh_1 \\
+                               &= ba
+\end{align*}
+So we have $G$ is Abelian.\\
+
+\noindent {\bf 2.10.}
+
+\begin{figure}[h]
+  \centering
+\begin{tikzpicture}[node distance=2cm]
+\title{Subgroups of $\mathbb{D}_{6}$}
+\node(D3)                           {$D_6$};
+\node(R)       [below left of=D3] {$\langle r \rangle$};
+\node(S)       [below of=D3]      {$\langle s \rangle$};
+\node(RS)      [right of=S]       {$\langle rs \rangle$};
+\node(R2S)     [right of=RS]      {$\langle r^2s \rangle$};
+\node(1)       [below of=S]       {$\langle 1 \rangle$};
+
+\draw(D3)      --  (R);
+\draw(D3)      --  (S);
+\draw(D3)      --  (RS);
+\draw(D3)      --  (R2S);
+\draw(R)       --  (1);
+\draw(S)       --  (1);
+\draw(RS)      --  (1);
+\draw(R2S)     --  (1);
+
+
+\end{tikzpicture}
+\caption{Subgroups of $\mathbb{D}_{6}$}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+\begin{tikzpicture}[node distance=2cm]
+\title{Subgroups of $\mathbb{D}_{8}$}
+\node(D8)                           {$D_8$};
+\node(R)       [below of=D8]        {$\langle r       \rangle$};
+\node(R2S)     [left of=R]   {$\langle s, r^2  \rangle$};
+\node(RS)      [right of=R]  {$\langle rs, r^2 \rangle$};
+\node(R2)      [below of=R]         {$\langle r^2     \rangle$};
+
+\node(SR2)     [below of=R2S]       {$\langle r^2s    \rangle$};
+\node(S)       [left of=SR2]  {$\langle s       \rangle$};
+\node(SR)      [below of=RS]        {$\langle rs      \rangle$};
+\node(SR3)     [right of=SR]  {$\langle r^3s    \rangle$};
+\node(1)       [below of=R2]        {$\langle 1       \rangle$};
+
+\draw(D8)      --  (R2S);
+\draw(D8)      --  (R);
+\draw(D8)      --  (RS);
+\draw(R2S)     --  (S);
+\draw(R2S)     --  (R2);
+\draw(R2S)     --  (SR2);
+\draw(R)       --  (R2);
+\draw(RS)      --  (SR);
+\draw(RS)      --  (R2);
+\draw(RS)      --  (SR3);
+\draw(R2)       --  (1);
+\draw(S)       --  (1);
+\draw(SR)       --  (1);
+\draw(SR2)      --  (1);
+\draw(SR3)     --  (1);
+
+\end{tikzpicture}
+\caption{Subgroups of $\mathbb{D}_{8}$}
+\end{figure}
+
+
+\begin{figure}[h]
+  \centering
+\begin{tikzpicture}[node distance=2cm]
+\title{Subgroups of $\mathbb{Q}_{8}$}
+\node(Q8)                         {$Q_8$};
+\node(J)      [below of=Q8]       {$\langle j \rangle$};
+\node(I)      [left of=J]         {$\langle i \rangle$};
+\node(K)      [right of=J]        {$\langle k \rangle$};
+\node(C)      [below of=J]        {$\langle -1 \rangle$};
+\node(1)      [below of=C]        {$\langle 1 \rangle$};
+
+\draw(Q8)      --  (I);
+\draw(Q8)      --  (J);
+\draw(Q8)      --  (K);
+\draw(I)       --  (C);
+\draw(J)       --  (C);
+\draw(K)       --  (C);
+\draw(C)       --  (1);
+
+
+
+\end{tikzpicture}
+\caption{Subgroups of $\mathbb{Q}_{8}$}
+\end{figure}
+\end{document}
