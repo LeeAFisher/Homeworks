@@ -1,0 +1,206 @@
+\documentclass[12pt]{report}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{amssymb,textcomp,amsmath,tikz}
+
+
+\begin{document}
+
+\textbf{Algebra 1 Homework 6}\\
+\indent \textbf{Lee Fisher}\\
+\indent \textbf{2017-10-1}
+
+\vspace{0.3cm}
+
+\noindent {\bf 4.2 \#1:} Let $\phi$ be map from $G$ to the group of permutations
+of $G/H$. We define $\phi$ by $\phi(g) = gxH$, for any $xH$ in $G/H$. That is
+$\phi$ sends an element in $G$ to the left multiplication bijection of $G/H$.
+The kernel of this homomorphism is the set
+\begin{align*}
+\textrm{Ker}(\phi) &= \{g \in G | gxH = xH       \textrm{ } \forall x \in G \}\\
+                   &= \{g \in G | x^{-1}gxH = H  \textrm{ } \forall x \in G \}\\
+                   &= \{g \in G | x^{-1}gx \in H \textrm{ } \forall x \in G \}\\
+                   &= \{g \in G | g \in xHx^{-1} \textrm{ } \forall x \in G \}\\
+                   &= \cap_{x \in G} xHx^{-1}\\
+\end{align*}
+
+So we know four things:
+\begin{itemize}
+\item $\textrm{Ker}(\phi)$ is a normal subgroup of $G$ because the kernel of a
+      homomorphism is a normal subgroup.\\
+
+\item $H$ contains $\textrm{Ker}(\phi)$ because $eHe^{-1} = H$ is in the
+      intersection that defines $\textrm{Ker}(\phi)$.\\
+
+\item $G/\textrm{Ker}(\phi)$ is isomorphic to a subgroup of the bijections of
+      $G/H$ by the first isomorphism theorem.\\
+
+\item The index of $\textrm{Ker}(\phi)$ is a divisor of $n!$ because of Cayley's
+      theorem and because $|S_{G/H}| = n!$.\\
+\end{itemize}
+
+That ends part 1.\\
+
+\noindent {\bf 4.2 \#2:} Let $p$ be the smallest prime factor of $|G|$ and
+let $H$ have index $p$. We start with the subgroup $K$ of $G$ contained in
+$H$ where: \\
+
+$$K = \bigcap_{x \in G} xHx^{-1}$$.
+
+Since $G$ is finite we have that:
+
+$$|G:K| = |G:H||H:K|$$
+
+Lets say $|H:K| = k$, so $|G:K| = pk$. We know from the last part that $pk|
+p!$, so $k | (p-1)!$. We'll look at the prime factorization $|G| = pp_1
+\dots p_n$ where each $p_i \leq p_{i+1}$ and $p$ is the smallest prime in
+the factorization. As well, the prime factorization of $|H|$ is $p_1p_2
+\dots p_n$. So $k = |H:K|$ is either $1$ or a product of some subset of $p_1
+,p_2,\dots p_n$. All of these primes are at least size $p$, so any product
+of them cannot divide into $(p-1)!$. Therefore $k = 1$ and $H = K$.\\
+
+Since $H = K = \cap xHx^{-1}$, this tells us that $H$ is fixed
+under conjugation by $G$, and thus that $H$ is normal. This ends part 2. \\
+
+\noindent {\bf 4.2 \#3:} This is a simple consequence of the previous part.
+$2$ is the smallest prime number so for any subgroup of index $2$, the
+previous part will apply and that subgroup will be normal. This ends part
+3.\\
+
+\noindent {\bf 4.2 \#4:} Let $N$ be a normal subgroup and $K$ be a conjugacy
+class of $G$. Suppose $K \cap N \neq \emptyset$ this means there is an $a
+\in K \cap N$. Consider $b \in K$, we know $b = g_1kg_1^{-1}$ for a fixed $k
+\in G$ and some $g_1 \in G$, and we know that $a= g_2kg_2^{-1}$ for another
+$g_2\in G$. After some algebra we have that $b = g_1 g_2^{-1} a
+(g_1g_2^{-1})^{-1}$, so $b \in N$. Now we know that $K \subseteq N$ and this
+ends part 4.\\
+
+\noindent {\bf 4.3 \#1:} For $Q_8$: First off we know that for any element
+$g$ in any group $G$, $\langle g \rangle \leq C_G(g)$. Cyclic groups are
+always abelian so any element in the cyclic subgroup will belong to the
+centralizer.\\
+
+Here is what this means for $Q_8$ in particular. The center of $Q_8$ is $\{ 1,
+-1\}$. The element $i$ is not in the center, but $|\langle i \rangle| = 4$ and
+$|Q_8 : \langle i \rangle| = 2$, so $C_{Q_8}(i) = \langle i \rangle$. So we have
+$Q_8/C_{Q_8}(i) = \{ i, -i\}$ and the same reasoning holds for $j$ and $k$.\\
+
+Thus the conjugacy classes of $Q_8$ are: $\{ 1\}$, $\{-1\}$, $\{ i, -i\} $, $\{
+j, -j\}$, and $\{ k, -k\}$.\\
+
+For $D_8$, there are three abelian subgroups with index $2$. These three normal
+subgroups: $\langle s, r^2 \rangle$, $\langle r \rangle$, and $\langle rs, r^2
+\rangle$, union to be the entirety of $D_8$ and all contain $r^2$ in their
+intersection. From the previous problem this tells us that the conjugacy classes
+of $D_8$ are properly contained in these groups.\\
+
+On the next tier of the subgroup lattice we have $\langle s \rangle$, $\langle
+r^2s \rangle$, $\langle rs \rangle$, $\langle r^3s \rangle$, and the center:
+$\langle r^2 \rangle$. If $x$ is not in the center then $\langle x \rangle$ is
+contained in one abelian subgroup of order $4$, so this means $|C_{D_8}(x)| \geq
+4$. The order of the centralizers must divide $8$, but they cannot be equal to
+$8$, because $D_8$ is not Abelian. So each centralizer has order $4$. Now we can
+compute the congugacy classes by finding $D_8/C_{D_8}(x)$, they are: $\{ 1\}$,
+$\{ r^2\}$, $\{ r,r^3\}$, $\{ s, sr^2\}$, and $\{ sr, sr^3\}$.\\
+
+
+\noindent {\bf 4.3 \#2 a):} Consider a $t$-cycle, $c = (c_1,\dots,c_t)$ and a
+random permutation $\sigma$. If $c(c_i) = c_j$ then consider $\sigma c
+\sigma^{-1}(\sigma(c_i))$. By composition this is $\sigma c(c_i) = \sigma(c_j)$.
+So, we know that if $c = (c_1,\dots,c_t)$ then $\sigma c \sigma^{-1} =
+(\sigma(c_1),\dots, \sigma(c_t))$.\\
+
+So since any conjugate of a $t$-cycle is a $t$-cycle then the conjugacy class of
+a $t$-cycle must contain only $t$-cycles. Consider the previous $t$-cycle $c$,
+and another one, $d = (d_1, \dots d_t)$. Now we construct the permutation
+$\sigma$ such that $\sigma(t_i) = d_i$ for all $i\leq t$, then we have $\sigma c
+\sigma^{-1}=d$. So any $t$-cycle is the conjugate of any other $t$-cycle.\\
+
+\noindent {\bf 4.3 \#2 b):} To construct a $t$-cycle from $S_n$, we have $n$
+choices for the first spot, $n-1$ choices for the second entry, and so on all
+the way down to $n-t+1$ choices for the $t^{\textrm{th}}$ entry. Also $t$-cycles
+are the same up to cyclicly reordering the elements, there are $t$ such shifts.
+Altogether we know there are $\frac{n!}{(n-t)!t}$ unique $t$-cycles.\\
+
+We know that the order of the conjugacy class of an element is $|G|/|C_G(x)|$.
+So we have $|S_n|/|C_{S_n}(c)| = \frac{n!}{(n-t)!t}$ and we know $|S_n| = n!$,
+so we have $|C_{S_n}(c)| = t(n-t)!$.\\
+
+\noindent {\bf 4.3 \#2 c):} Consider the alternating group $A_5$. From the
+previous question we can see that it contains $24$ $5$-cycles, $20$ $3$-cycles,
+$15$ pairs of $2$-cycles, and the identity element.\\
+
+We need to construct the conjugacy classes of each of the cycle groups. First we
+need to look at how conjugacy classes in $A_n$ are related to the corresponding
+classes in $S_n$. We have either that $C_{S_n}(x) \subset A_n$ or the opposite.\\
+
+In the first case we see that $C_{S_n}(x) \cap A_n = C_{S_n}(x)$, and since
+$A_n$ has exactly half as many elements as $S_n$ we have that the conjugacy
+class of $x$ in $A_n$ has exactly half as many elements as the same conjugacy
+class in $S_n$.\\
+
+In the second case, if $C_{S_n}(x)$ is not a subset of $A_n$ then there is an
+odd element $\tau$ in $C_{S_n(x)}$. Consider for any other odd element $\sigma$
+we have $\sigma x\sigma^{-1} = \sigma \tau x \tau^{-1} \sigma^{-1} = \sigma \tau
+x (\sigma \tau)^{-1}$. This is implies the conjugacy classes are the same in
+$A_n$ and $S_n$.\\
+
+We can start constructing the conjugacy classes with the $5$-cycles. We see that
+if $\sigma$ conjugates $(12345)$ to $(13524)$, then $\sigma$ can be written as
+$(2354)$ which is odd. So these elements are not conjugates in $A_5$. Thus from
+the previous part there are $2$ $5$-cycle conjugacy classes, each having size
+$12$.\\
+
+Now we look at the three cycles. The centralizer of $(123)$ contains the odd
+element $(45)$, so the conjugacy class of $(123)$ in $A_5$ is the same as in
+$S_5$. So there is only one conjugacy class of three cycles.\\
+
+Finally we consider pairs of two cycles. Again the centralizer of $(13)(24)$
+contains the odd element $(13)$. So there is one conjugacy class for pairs of
+$2$-cycles.\\
+
+So we know that the class equation for $A_5$ is $60 = 12 + 12 + 20 + 15 + 1$.
+Any normal subgroup of $A_5$ is a union of conjugacy classes and it must contain
+the element $1$. It also must be a divisor of $60$. This reveals the only
+possible normal subgroups have size $60$ or size $1$, and we're done.\\
+
+\noindent {\bf 4.4 \#1:} Let $G$ be a group of order $11^2 * 13^2$. From
+Sylow's theorem we know that $n_{11} = 1$ mod $11$ and that $n_{11} | 13^2$,
+this means $n_{11} = 1$. Also we know that $n_{13} = 1$ mod $13$ and that
+$n_{13} | 11^2$, again tells us that $n_{13} = 1$. This tells us that the groups
+$P \in Syl_{11}(G)$ and $Q \in Syl_{13}(G)$ subgroups are unique. Since they are
+unique, $\forall g \in G$ we have that $gPg^{-1} = P$ and $gQg^{-1} = Q$. So the
+Sylow $p$-subgroups are both normal. From the section on normal subgroups we
+know that $PQ$ is a subgroup of $G$, and since $|PQ| = |G|$, we have $G = PQ$.
+The subgroups $P$ and $Q$ themselves both have order a prime squared, so, from
+exercise 4.1, we can say that $P$ and $Q$ are both Abelian, and thus $G = PQ$ is
+Abelian.\\
+
+\noindent {\bf 4.4 \#2:} Consider a group $G$ of order $77 = 7*11$. Let's look
+at $n_7$ and $n_11$ the number of Sylow 7-subgroups and Sylow 11-subgroups. From
+Sylow's theorem we have $n_7 = 1$ mod $7$ and $n_7 | 11$, this tells $n_7 = 1$.
+Also we have that $n_{11} = 1$ mod $11$ and $n_{11} | 7$, again we know $n_{11}
+= 1$. So from the same reasoning as the last problem we see that $G$ is the
+product of subgroups of order $11$ and $7$. These subgroups are both prime
+order, and thus cyclic. So $G = \mathbb{Z}_{11} \times \mathbb{Z}_7$. This group
+has an element of order $77$, namely $(1,1)$. Thus $G = \mathbb{Z}_{77}$.\\
+
+\noindent {\bf 4.4 \#3:} Let $G$ be a group of order $30$. Consider the
+collections of Sylow 3-subgroups and Sylow 5-Subgroups. We have $n_5=1$ mod $5$
+and $n_5|6$, and that $n_3 = 1$ mod $3$ and $n_3|10$.\\
+
+If either $n_5$ or $n_3$ is one then we are done, this means $G$ will contain a
+normal subgroup $P$ of order $3$, and at least one subgroup $Q$ of order $5$.
+This means $PQ$ will be a subgroup of order $15$, and since $P$ and $Q$ both
+have prime order, they are cyclic, and $PQ$ will also be the cyclic group
+$\mathbb{Z}_{15}$.\\
+
+The only other options for $n_3$ and $n_5$ are if $n_3 = 10$ and $n_5 = 6$.
+This would mean that the $G$ would contain $6*4=24$ elements of order $5$ and
+$10*2=20$ elements of order $3$. This is impossible though, because a group of
+order $30$ cannot contain more than $44$ elements.\\
+
+So to conclude, we know that at least one of $n_3$ or $n_5$ will be $1$. This
+guarantees the existence of a cyclic subgroup of order $15$ in $G$.\\
+
+
+\end{document}
